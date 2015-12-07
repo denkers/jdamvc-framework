@@ -20,7 +20,7 @@ public class AppConfig
     public static final boolean GUI_MODE        =   true;
     
     //The applications name shown on winodws, titles etc.
-    public static final String APP_NAME         =   "StudentCore";
+    public static final String APP_NAME         =   "MyApp";
     
     //The width of the GUI window
     public static final int WINDOW_WIDTH        =   768;

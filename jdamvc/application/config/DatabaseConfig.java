@@ -19,16 +19,16 @@ public class DatabaseConfig
     public static final int PORT                =   1527;
     
      //database server username
-    public static final String DB_USERNAME      =   "kyleruss";
+    public static final String DB_USERNAME      =   "username"
     
     //database server password
-    public static final String DB_PASSWORD      =   "fgsmg2";
+    public static final String DB_PASSWORD      =   "password";
     
     //active live database name
-    public static final String DATABASE         =   "SchoolDB"; 
+    public static final String DATABASE         =   "production_db"; 
     
     //the test database name
-    public static final String TEST_DATABASE    =   "SchoolTestDB"; 
+    public static final String TEST_DATABASE    =   "testing_db"; 
     
     //db connection driver
     public static final String DRIVER           =   "jdbc:derby"; 
