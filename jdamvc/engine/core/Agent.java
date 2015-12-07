@@ -6,16 +6,16 @@
 
 package jdamvc.engine.core;
 
-import engine.config.AppConfig;
-import engine.controllers.ControllerMessage;
-import engine.core.authentication.Session;
-import engine.core.authentication.StoredCredentials;
-import engine.views.GUIView;
-import engine.views.View;
-import engine.views.cui.Utilities.CUITextTools;
-import engine.views.gui.layout.HeaderNavigation;
-import engine.views.gui.layout.Layout;
-import engine.views.gui.layout.Window;
+import jdamvc.application.config.AppConfig;
+import jdamvc.engine.controller.ControllerMessage;
+import jdamvc.engine.core.authentication.Session;
+import jdamvc.engine.core.authentication.StoredCredentials;
+import jdamvc.engine.view.GUIView;
+import jdamvc.engine.view.View;
+import jdamvc.engine.views.cui.Utilities.CUITextTools;
+import jdamvc.application.views.gui.layout.HeaderNavigation;
+import jdamvc.application.views.gui.layout.Layout;
+import jdamvc.application.views.gui.layout.Window;
 import java.awt.event.ActionEvent;
 import java.util.Scanner;
 import javax.swing.Timer;

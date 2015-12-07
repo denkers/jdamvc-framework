@@ -6,8 +6,8 @@
 
 package jdamvc.engine.view;
 
-import engine.controllers.ControllerMessage;
-import engine.core.Path;
+import jdamvc.engine.controller.ControllerMessage;
+import jdamvc.engine.core.Path;
 import engine.views.cui.Utilities.CUITextTools;
 
 

@@ -6,7 +6,7 @@
 
 package jdamvc.engine.core;
 
-import engine.config.AppConfig;
+import jdamvc.application.config.AppConfig;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;

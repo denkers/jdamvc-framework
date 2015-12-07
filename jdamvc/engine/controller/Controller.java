@@ -6,8 +6,8 @@
 
 package jdamvc.engine.controller;
 
-import engine.core.Path;
-import engine.views.View;
+import jdamvc.engine.core.Path;
+import jdamvc.engine.view.View;
 
 
 //------------------------------------------

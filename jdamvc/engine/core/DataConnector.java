@@ -6,9 +6,9 @@
 
 package jdamvc.engine.core;
 
-import engine.config.AppConfig;
-import engine.config.DatabaseConfig;
-import engine.core.loggers.MainLogger;
+import jdamvc.application.config.AppConfig;
+import jdamvc.application.config.DatabaseConfig;
+import jdamvc.engine.core.loggers.MainLogger;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;

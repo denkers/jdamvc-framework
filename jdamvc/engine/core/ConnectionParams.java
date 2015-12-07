@@ -6,7 +6,7 @@
 
 package jdamvc.engine.core;
 
-import engine.config.DatabaseConfig;
+import jdamvc.application.config.DatabaseConfig;
 import java.text.MessageFormat;
 import java.util.Iterator;
 import java.util.Map;

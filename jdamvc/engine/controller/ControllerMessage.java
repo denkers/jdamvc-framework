@@ -7,7 +7,7 @@
 package jdamvc.engine.controller;
 
 import com.google.gson.JsonArray;
-import engine.core.JsonParser;
+import jdamvc.engine.core.JsonParser;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;

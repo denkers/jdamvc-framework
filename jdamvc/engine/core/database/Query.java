@@ -7,7 +7,7 @@
 package jdamvc.engine.core.database;
 
 import com.google.gson.annotations.SerializedName;
-import engine.core.JsonParser;
+import jdamvc.engine.core.JsonParser;
 import java.util.ArrayList;
 import java.util.List;
 

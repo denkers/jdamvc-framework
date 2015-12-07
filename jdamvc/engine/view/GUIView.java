@@ -6,10 +6,10 @@
 
 package jdamvc.engine.view;
 
-import engine.controllers.ControllerMessage;
-import engine.core.Agent;
-import engine.core.ExceptionOutput;
-import engine.views.gui.layout.Layout;
+import jdamvc.engine.controller.ControllerMessage;
+import jdamvc.engine.core.Agent;
+import jdamvc.engine.core.ExceptionOutput;
+import jdamvc.application.views.gui.layout.Layout;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.image.BufferedImage;

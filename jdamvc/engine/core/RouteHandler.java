@@ -6,8 +6,8 @@
 
 package jdamvc.engine.core;
 
-import engine.controllers.ControllerMessage;
-import engine.views.View;
+import jdamvc.engine.controller.ControllerMessage;
+import jdamvc.engine.view.View;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.lang.reflect.InvocationTargetException;

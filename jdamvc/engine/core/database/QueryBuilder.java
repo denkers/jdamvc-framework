@@ -7,10 +7,10 @@
 package jdamvc.engine.core.database;
 
 import com.google.gson.JsonArray;
-import engine.core.JsonParser;
-import engine.core.DataConnector;
-import engine.core.ExceptionOutput;
-import engine.core.database.Join.JoinType;
+import jdamvc.engine.core.JsonParser;
+import jdamvc.engine.core.DataConnector;
+import jdamvc.engine.core.ExceptionOutput;
+import jdamvc.engine.core.database.Join.JoinType;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.MessageFormat;

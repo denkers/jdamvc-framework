@@ -6,7 +6,7 @@
 
 package jdamvc.application.views.gui.layout;
 
-import engine.core.Agent;
+import jdamvc.engine.core.Agent;
 import java.awt.Frame;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;

@@ -5,7 +5,7 @@
 //====================================
 package jdamvc.application.views.gui.layout;
 
-import engine.views.GUIView;
+import jdamvc.engine.view.GUIView;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;

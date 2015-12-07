@@ -6,9 +6,9 @@
 
 package jdamvc.engine.core;
 
-import engine.config.AppConfig;
-import engine.core.loggers.MainLogger;
-import engine.views.cui.Utilities.CUITextTools;
+import jdamvc.application.config.AppConfig;
+import jdamvc.engine.core.loggers.MainLogger;
+import jdamvc.engine.views.cui.Utilities.CUITextTools;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import javax.swing.JOptionPane;

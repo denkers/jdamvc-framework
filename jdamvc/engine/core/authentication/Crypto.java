@@ -6,8 +6,8 @@
 
 package jdamvc.engine.core.authentication;
 
-import engine.config.AuthConfig;
-import engine.core.ExceptionOutput;
+import jdamvc.application.config.AuthConfig;
+import jdamvc.engine.core.ExceptionOutput;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

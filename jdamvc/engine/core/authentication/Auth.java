@@ -6,11 +6,11 @@
 
 package jdamvc.engine.core.authentication;
 
-import engine.config.AuthConfig;
-import engine.core.Agent;
-import engine.core.ExceptionOutput;
-import engine.core.loggers.MainLogger;
-import engine.models.User;
+import jdamvc.application.config.AuthConfig;
+import jdamvc.engine.core.Agent;
+import jdamvc.engine.core.ExceptionOutput;
+import jdamvc.engine.core.loggers.MainLogger;
+import jdamvc.engine.model.User;
 import java.text.DateFormat;
 import java.text.MessageFormat;
 import java.text.SimpleDateFormat;

@@ -8,12 +8,12 @@ package jdamvc.engine.model;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import engine.core.JsonParser;
-import engine.config.DatabaseConfig;
-import engine.core.database.Column;
-import engine.core.DataConnector;
-import engine.core.ExceptionOutput;
-import engine.core.database.QueryBuilder;
+import jdamvc.engine.core.JsonParser;
+import jdamvc.application.config.DatabaseConfig;
+import jdamvc.engine.core.database.Column;
+import jdamvc.engine.core.DataConnector;
+import jdamvc.engine.core.ExceptionOutput;
+import jdamvc.engine.core.database.QueryBuilder;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.text.MessageFormat;

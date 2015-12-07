@@ -8,8 +8,8 @@ package jdamvc.engine.core.authentication;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import engine.config.AppConfig;
-import engine.core.ExceptionOutput;
+import jdamvc.application.config.AppConfig;
+import jdamvc.engine.core.ExceptionOutput;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;

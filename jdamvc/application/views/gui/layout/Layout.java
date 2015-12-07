@@ -6,8 +6,8 @@
 
 package jdamvc.application.views.gui.layout;
 
-import jdamvc.engine.config.AppConfig;
-import engine.core.ExceptionOutput;
+import jdamvc.application.config.AppConfig;
+import jdamvc.engine.core.ExceptionOutput;
 import java.awt.BorderLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;

@@ -6,7 +6,7 @@
 
 package jdamvc.engine.core.database;
 
-import engine.models.Model;
+import jdamvc.engine.model.Model;
 import java.text.MessageFormat;
 
 

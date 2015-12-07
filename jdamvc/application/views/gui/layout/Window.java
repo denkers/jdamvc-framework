@@ -6,8 +6,8 @@
 
 package jdamvc.application.views.gui.layout;
 
-import engine.config.AppConfig;
-import engine.views.GUIView;
+import jdamvc.application.config.AppConfig;
+import jdamvc.engine.view.GUIView;
 import java.awt.Point;
 import javax.swing.JFrame;
 

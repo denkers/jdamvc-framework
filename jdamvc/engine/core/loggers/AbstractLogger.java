@@ -6,7 +6,7 @@
 
 package jdamvc.engine.core.loggers;
 
-import engine.config.LoggingConfig;
+import jdamvc.application.config.LoggingConfig;
 import java.io.IOException;
 import java.util.logging.FileHandler;
 import java.util.logging.Handler;
