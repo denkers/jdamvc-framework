@@ -4,10 +4,10 @@
 //	MainLogger
 //====================================
 
-package engine.core.loggers;
+package jdamvc.engine.core.loggers;
 
-import engine.config.LoggingConfig;
-import engine.core.ExceptionOutput;
+import jdamvc.application.config.LoggingConfig;
+import jdamvc.engine.core.ExceptionOutput;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;

@@ -4,7 +4,7 @@
 //	ResponseDataView
 //====================================
 
-package engine.views;
+package jdamvc.engine.view;
 
 import engine.controllers.ControllerMessage;
 import engine.core.Path;

@@ -4,7 +4,7 @@
 //	Model
 //====================================
 
-package engine.models;
+package jdamvc.engine.model;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;

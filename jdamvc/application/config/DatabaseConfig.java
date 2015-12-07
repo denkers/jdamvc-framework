@@ -4,7 +4,7 @@
 //	DatabaseConfig
 //====================================
 
-package engine.config;
+package jdamvc.application.config;
 
 public class DatabaseConfig
 { 
@@ -19,7 +19,7 @@ public class DatabaseConfig
     public static final int PORT                =   1527;
     
      //database server username
-    public static final String DB_USERNAME      =   "username"
+    public static final String DB_USERNAME      =   "username";
     
     //database server password
     public static final String DB_PASSWORD      =   "password";

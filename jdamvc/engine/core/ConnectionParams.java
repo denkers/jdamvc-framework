@@ -4,7 +4,7 @@
 //	ConnectionParams
 //====================================
 
-package engine.core;
+package jdamvc.engine.core;
 
 import engine.config.DatabaseConfig;
 import java.text.MessageFormat;

@@ -4,7 +4,7 @@
 //	AuthConfig
 //====================================
 
-package engine.config;
+package jdamvc.application.config;
 
 public class AuthConfig 
 {

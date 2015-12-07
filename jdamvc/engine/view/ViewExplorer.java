@@ -4,7 +4,7 @@
 //	ViewExplorer
 //====================================
 
-package engine.views;
+package jdamvc.engine.view;
 
 //------------------------------------
 //            VIEWEXPLORER

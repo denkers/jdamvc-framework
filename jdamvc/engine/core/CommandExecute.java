@@ -4,7 +4,7 @@
 //	CommandExecute
 //====================================
 
-package engine.core;
+package jdamvc.engine.core;
 
 //-------------------------------------
 //          COMMANDEXECUTE

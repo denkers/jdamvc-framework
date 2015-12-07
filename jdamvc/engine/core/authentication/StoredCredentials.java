@@ -4,7 +4,7 @@
 //	StoredCredentials
 //====================================
 
-package engine.core.authentication;
+package jdamvc.engine.core.authentication;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

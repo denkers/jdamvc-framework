@@ -4,7 +4,7 @@
 //	Session
 //====================================
 
-package engine.core.authentication;
+package jdamvc.engine.core.authentication;
 
 import engine.models.User;
 

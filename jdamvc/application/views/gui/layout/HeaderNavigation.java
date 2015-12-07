@@ -4,14 +4,14 @@
 //	HeaderNavigation
 //====================================
 
-package engine.views.gui.layout;
+package jdamvc.application.views.gui.layout;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import engine.config.AppConfig;
-import engine.core.Agent;
-import engine.core.authentication.Session;
-import engine.models.NotificationModel;
+import jdamvc.application.config.AppConfig;
+import jdamvc.engine.core.Agent;
+import jdamvc.engine.core.authentication.Session;
+import jdamvc.engine.model.NotificationModel;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;

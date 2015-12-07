@@ -4,7 +4,7 @@
 //	QueryBuilder
 //====================================
 
-package engine.core.database;
+package jdamvc.engine.core.database;
 
 import com.google.gson.JsonArray;
 import engine.core.JsonParser;

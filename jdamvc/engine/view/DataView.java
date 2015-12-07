@@ -4,9 +4,9 @@
 //	DataView
 //====================================
 
-package engine.views;
+package jdamvc.engine.view;
 
-import engine.controllers.ControllerMessage;
+import jdamvc.engine.controller.ControllerMessage;
 
 //------------------------------------
 //              DATAVIEW

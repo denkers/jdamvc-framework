@@ -4,7 +4,7 @@
 //	JsonParser
 //====================================
 
-package engine.core;
+package jdamvc.engine.core;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

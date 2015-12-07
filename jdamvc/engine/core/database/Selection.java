@@ -4,7 +4,7 @@
 //	Selection
 //====================================
 
-package engine.core.database;
+package jdamvc.engine.core.database;
 
 import java.text.MessageFormat;
 

@@ -4,7 +4,7 @@
 //	LoggingConfig
 //====================================
 
-package engine.config;
+package jdamvc.application.config;
 
 public class LoggingConfig
 {

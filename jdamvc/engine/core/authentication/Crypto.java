@@ -4,7 +4,7 @@
 //	Crypto
 //====================================
 
-package engine.core.authentication;
+package jdamvc.engine.core.authentication;
 
 import engine.config.AuthConfig;
 import engine.core.ExceptionOutput;

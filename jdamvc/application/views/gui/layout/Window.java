@@ -4,7 +4,7 @@
 //	Window
 //====================================
 
-package engine.views.gui.layout;
+package jdamvc.application.views.gui.layout;
 
 import engine.config.AppConfig;
 import engine.views.GUIView;

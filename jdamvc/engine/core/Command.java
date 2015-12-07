@@ -4,7 +4,7 @@
 //	Command
 //====================================
 
-package engine.core;
+package jdamvc.engine.core;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

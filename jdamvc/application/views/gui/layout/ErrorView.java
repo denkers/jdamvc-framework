@@ -4,11 +4,10 @@
 //	ErrorView
 //====================================
 
-package engine.views.gui.layout;
+package jdamvc.application.views.gui.layout;
 
-import engine.controllers.ControllerMessage;
-import engine.core.Agent;
-import engine.views.GUIView;
+import jdamvc.engine.controller.ControllerMessage;
+import jdamvc.engine.core.Agent;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -17,6 +16,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.Timer;
+import jdamvc.engine.view.GUIView;
 
 public class ErrorView extends GUIView
 {

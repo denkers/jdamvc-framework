@@ -4,7 +4,7 @@
 //	Join
 //====================================
 
-package engine.core.database;
+package jdamvc.engine.core.database;
 
 import engine.config.DatabaseConfig;
 import java.text.MessageFormat;

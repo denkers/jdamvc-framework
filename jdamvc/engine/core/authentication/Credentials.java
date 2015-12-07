@@ -4,7 +4,7 @@
 //	Credentials
 //====================================
 
-package engine.core.authentication;
+package jdamvc.engine.core.authentication;
 
 public class Credentials
 {

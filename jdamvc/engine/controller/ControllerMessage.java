@@ -4,7 +4,7 @@
 //	ControllerMessage
 //====================================
 
-package engine.controllers;
+package jdamvc.engine.controller;
 
 import com.google.gson.JsonArray;
 import engine.core.JsonParser;

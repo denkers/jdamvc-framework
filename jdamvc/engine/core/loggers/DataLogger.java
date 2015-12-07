@@ -4,7 +4,7 @@
 //	DataLogger
 //====================================
 
-package engine.core.loggers;
+package jdamvc.engine.core.loggers;
 
 import java.io.IOException;
 import java.util.logging.Logger;

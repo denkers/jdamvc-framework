@@ -4,7 +4,7 @@
 //	Agent
 //====================================
 
-package engine.core;
+package jdamvc.engine.core;
 
 import engine.config.AppConfig;
 import engine.controllers.ControllerMessage;

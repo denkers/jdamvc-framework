@@ -4,7 +4,7 @@
 //	DataConnector
 //====================================
 
-package engine.core;
+package jdamvc.engine.core;
 
 import engine.config.AppConfig;
 import engine.config.DatabaseConfig;

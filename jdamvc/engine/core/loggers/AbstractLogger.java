@@ -4,7 +4,7 @@
 //	AbstractLogger
 //====================================
 
-package engine.core.loggers;
+package jdamvc.engine.core.loggers;
 
 import engine.config.LoggingConfig;
 import java.io.IOException;

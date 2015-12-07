@@ -4,7 +4,7 @@
 //	Controller
 //====================================
 
-package engine.controllers;
+package jdamvc.engine.controller;
 
 import engine.core.Path;
 import engine.views.View;

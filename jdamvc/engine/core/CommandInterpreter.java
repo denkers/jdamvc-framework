@@ -4,7 +4,7 @@
 //	CommandInterpreter
 //====================================
 
-package engine.core;
+package jdamvc.engine.core;
 
 import com.bethecoder.ascii_table.ASCIITable;
 import engine.views.cui.Utilities.CUITextTools;

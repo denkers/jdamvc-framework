@@ -3,7 +3,7 @@
 //	StudentCore
 //	ViewPane
 //====================================
-package engine.views.gui.layout;
+package jdamvc.application.views.gui.layout;
 
 import engine.views.GUIView;
 import java.awt.CardLayout;

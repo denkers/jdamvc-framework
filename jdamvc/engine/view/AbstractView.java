@@ -4,12 +4,12 @@
 //	AbstractView
 //====================================
 
-package engine.views;
+package jdamvc.engine.view;
 
-import engine.controllers.ControllerMessage;
-import engine.core.CommandInterpreter;
-import engine.core.Path;
-import engine.views.cui.Utilities.CUITextTools;
+import jdamvc.engine.controller.ControllerMessage;
+import jdamvc.engine.core.CommandInterpreter;
+import jdamvc.engine.core.Path;
+import jdamvc.engine.views.cui.Utilities.CUITextTools;
 
 //------------------------------------
 //            ABSTRACTVIEW
