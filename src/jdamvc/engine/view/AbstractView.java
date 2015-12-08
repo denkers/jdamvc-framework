@@ -9,7 +9,6 @@ package jdamvc.engine.view;
 import jdamvc.engine.controller.ControllerMessage;
 import jdamvc.engine.core.CommandInterpreter;
 import jdamvc.engine.core.Path;
-import jdamvc.engine.views.cui.Utilities.CUITextTools;
 
 //------------------------------------
 //            ABSTRACTVIEW
@@ -99,15 +98,7 @@ public abstract class AbstractView extends CommandInterpreter implements View
     //Displays a header with view name and description
     //Shows all available commands in the view
     @Override
-    public void display()
-    {
-       String headerMain    =   CUITextTools.drawLargeHeader(viewTitle, viewDescription, CUITextTools.GREEN, CUITextTools.CYAN);
-       String cmdSubheader  =   CUITextTools.drawSubHeader("Commands", CUITextTools.PLAIN, CUITextTools.GREEN, "=");
-       String breadcrumb    =   CUITextTools.underline(CUITextTools.changeColour("Location: ", CUITextTools.CYAN) + path.getFullURL());
-      
-       System.out.println("\n\n" + headerMain + "\n\n" + breadcrumb + "\n\n" + cmdSubheader + "\n");
-       showCommands();
-    }
+    public abstract void display();
     
     //Returns the access level of the view
     //Generally all views are accessible

@@ -8,7 +8,6 @@ package jdamvc.engine.core;
 
 import jdamvc.application.config.AppConfig;
 import jdamvc.engine.core.loggers.MainLogger;
-import jdamvc.engine.views.cui.Utilities.CUITextTools;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import javax.swing.JOptionPane;
@@ -41,7 +40,7 @@ public class ExceptionOutput
             else
                 prefix = "[Error] ";
             
-            String output   =   CUITextTools.changeColour(prefix + message, CUITextTools.RED);
+            String output   =   prefix + message;
             System.out.println(output);
         }
         

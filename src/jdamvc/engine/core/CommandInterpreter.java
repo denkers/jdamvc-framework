@@ -6,8 +6,6 @@
 
 package jdamvc.engine.core;
 
-import com.bethecoder.ascii_table.ASCIITable;
-import engine.views.cui.Utilities.CUITextTools;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -59,13 +57,11 @@ public abstract class CommandInterpreter implements CommandExecute
     //Prompts a message when the command is not found
     public void unrecognizedCommand()
     {
-        int errorColour =   CUITextTools.RED;
-        String message  =   "Command was not recognized!";
-        message         =   CUITextTools.changeColour(message, errorColour);
-        
+        String message  =   "Command was not recognized!";        
         ExceptionOutput.output(message, ExceptionOutput.OutputType.MESSAGE);
     }
     
+    //TODO: print commands or remove showCommands()
     //Displays a table of available commands from the listener
     //Each cell includes the command name and description
     //Used by help command for each view to show commands of the view
@@ -96,14 +92,14 @@ public abstract class CommandInterpreter implements CommandExecute
                 Command current         =   commandCol.get(commandIndex);
                 String commandName      =   current.getCommandName();
                 String commandDesc      =   current.getCommandDescription();
-                String commandDisp      =   CUITextTools.keyTextBrackets(commandDesc, commandName);
+               // String commandDisp      =   CUITextTools.keyTextBrackets(commandDesc, commandName);
                 
-                data[row][col] = commandDisp;
+                //data[row][col] = commandDisp;
                 commandIndex++;
             }
         }
        
-        ASCIITable.getInstance().printTable(headers, data);
+        //ASCIITable.getInstance().printTable(headers, data);
     }
     
     //Implementors should return the path to the listeners json file

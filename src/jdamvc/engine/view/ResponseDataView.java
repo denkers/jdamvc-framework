@@ -8,7 +8,6 @@ package jdamvc.engine.view;
 
 import jdamvc.engine.controller.ControllerMessage;
 import jdamvc.engine.core.Path;
-import engine.views.cui.Utilities.CUITextTools;
 
 
 public class ResponseDataView implements DataView
@@ -41,11 +40,12 @@ public class ResponseDataView implements DataView
     @Override
     public String getResponseMessage() 
     {
-        final int SUCCESS_COLOUR    =   CUITextTools.GREEN;
+        /*final int SUCCESS_COLOUR    =   CUITextTools.GREEN;
         final int FAIL_COLOUR       =   CUITextTools.RED;
         
         return (responseStatus)? 
-        CUITextTools.changeColour(responseMessage, SUCCESS_COLOUR) : CUITextTools.changeColour(responseMessage, FAIL_COLOUR);
+        CUITextTools.changeColour(responseMessage, SUCCESS_COLOUR) : CUITextTools.changeColour(responseMessage, FAIL_COLOUR); */
+        return responseMessage;
     }
     
     public String getRawResponseMessage()

@@ -11,7 +11,6 @@ import com.google.gson.JsonObject;
 import jdamvc.application.config.AppConfig;
 import jdamvc.engine.core.Agent;
 import jdamvc.engine.core.authentication.Session;
-import jdamvc.engine.model.NotificationModel;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;
@@ -239,7 +238,7 @@ public class HeaderNavigation extends JPanel implements ActionListener
     
     public void updateUserPanel()
     {
-        if(Agent.getActiveSession() != null)
+       /* if(Agent.getActiveSession() != null)
         {
             enableUserControls();
             Session session         =   Agent.getActiveSession();
@@ -252,7 +251,7 @@ public class HeaderNavigation extends JPanel implements ActionListener
                 userNotificationsButton.setIcon(new ImageIcon(Layout.getImage("hasnotificationsbutton.png")));
             else
                 userNotificationsButton.setIcon(new ImageIcon(Layout.getImage("nonotificationsbutton.png")));
-        }
+        } */
     }
     
     private class NotificationUpdater extends Thread
@@ -288,7 +287,7 @@ public class HeaderNavigation extends JPanel implements ActionListener
     
     public void showNotificationWindow()
     {
-        if(notificationModalOpen) return;
+        /*if(notificationModalOpen) return;
         else notificationModalOpen   = true;
         
         SwingUtilities.invokeLater(() ->
@@ -430,7 +429,7 @@ public class HeaderNavigation extends JPanel implements ActionListener
             });
             
             modal.setVisible(true);
-        });
+        }); */
     }
 
     

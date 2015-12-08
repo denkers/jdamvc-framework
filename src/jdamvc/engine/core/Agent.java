@@ -12,7 +12,6 @@ import jdamvc.engine.core.authentication.Session;
 import jdamvc.engine.core.authentication.StoredCredentials;
 import jdamvc.engine.view.GUIView;
 import jdamvc.engine.view.View;
-import jdamvc.engine.views.cui.Utilities.CUITextTools;
 import jdamvc.application.views.gui.layout.HeaderNavigation;
 import jdamvc.application.views.gui.layout.Layout;
 import jdamvc.application.views.gui.layout.Window;
@@ -263,7 +262,7 @@ public final class Agent extends CommandInterpreter
     public static void setPrevView()
     {
         if(activeView == null || activeView.getPrevView() == null)
-            System.out.println(CUITextTools.changeColour("Can't go to that view", CUITextTools.RED));
+            ExceptionOutput.output("Can't go to that view", ExceptionOutput.OutputType.DEBUG);
         else
             setView(activeView.getPrevView());
         
@@ -275,7 +274,7 @@ public final class Agent extends CommandInterpreter
     public static void setNextView()
     {
         if(activeView == null || activeView.getNextView() == null)
-            System.out.println(CUITextTools.changeColour("Can't go to that view", CUITextTools.RED));
+            ExceptionOutput.output("Can't go to that view", ExceptionOutput.OutputType.DEBUG);
         else
             setView(activeView.getNextView());
     }
@@ -284,7 +283,7 @@ public final class Agent extends CommandInterpreter
     public static void refreshView()
     {
          if(activeView == null)
-             System.out.println(CUITextTools.changeColour("Can't refresh this view", CUITextTools.RED));
+             ExceptionOutput.output("Can't refresh this view", ExceptionOutput.OutputType.DEBUG);
          else
          {
              if(!guiMode) activeView.display();
@@ -301,13 +300,13 @@ public final class Agent extends CommandInterpreter
     //Help includes the command names and descriptions
     public void showHelp()
     {
-        System.out.println("\n" + CUITextTools.underline(CUITextTools.changeColour("Agent commands", CUITextTools.CYAN)) + "\n");
+        System.out.println("\nAgent commands\n");
         showCommands();
         
         //Show view commands
         if(activeView != null)
         {
-            System.out.println("\n" + CUITextTools.underline(CUITextTools.changeColour("View commands", CUITextTools.MAGENTA)) + "\n");
+            System.out.println("\nView command\n");
             ((CommandInterpreter) activeView).showCommands();
         }
     }
@@ -316,8 +315,6 @@ public final class Agent extends CommandInterpreter
     //If no other work, app is killed
     public void exitApp()
     {
-        String exitText =   CUITextTools.changeColour("Thanks for using Student core by Kyle Russell!", CUITextTools.GREEN);
-        System.out.println(exitText);
         stopServing();
     }
     
@@ -338,11 +335,11 @@ public final class Agent extends CommandInterpreter
             
             if(activeSession == null)
             {
-                System.out.println(CUITextTools.changeColour("You aren't logged in!", CUITextTools.RED));
+                ExceptionOutput.output("You aren't logged in!", ExceptionOutput.OutputType.DEBUG);
                 return;
             }
             
-            System.out.println("\n" + CUITextTools.changeColour("You have been logged out", CUITextTools.RED) + "\n");
+            ExceptionOutput.output("You have been logged out\n", ExceptionOutput.OutputType.DEBUG);
             System.out.println("Redirecting in 5 seconds..");
         
       
