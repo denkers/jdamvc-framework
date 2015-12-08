@@ -342,4 +342,10 @@ public abstract class Model
     {
         return new QueryBuilder(table);
     }
+    
+    public Model find(Object id)
+    {
+        fetchExisting(id);
+        return this;
+    }
 }

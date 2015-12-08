@@ -39,7 +39,7 @@ public class Auth
             String passCol  =   AuthConfig.PASSWORD_COL.toUpperCase();
             
             //Fetch user
-            UserModel attempt    =   new UserModel(username);
+            UserModel attempt    =   (UserModel) new UserModel().find(username);
             if(attempt.get(userCol) == null || attempt.get(passCol) == null) throw new Exception("Account was not found");
             else
             {
