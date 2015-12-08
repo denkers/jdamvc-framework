@@ -6,7 +6,7 @@
 
 package jdamvc.engine.core.authentication;
 
-import engine.models.User;
+import jdamvc.application.models.UserModel;
 
 //---------------------------------------
 //             SESSION
@@ -19,16 +19,16 @@ public class Session
 {
     //The sessions auth user
     //User is logged in
-    private final User authUser;
+    private final UserModel authUser;
     
     //Create a session for user authUser
-    public Session(User authUser)
+    public Session(UserModel authUser)
     {
         this.authUser    =   authUser;
     }
     
     //Returns the sessions auth user
-    public User getUser()
+    public UserModel getUser()
     {
         return authUser;
     }

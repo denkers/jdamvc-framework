@@ -10,7 +10,7 @@ import jdamvc.application.config.AuthConfig;
 import jdamvc.engine.core.Agent;
 import jdamvc.engine.core.ExceptionOutput;
 import jdamvc.engine.core.loggers.MainLogger;
-import jdamvc.engine.model.User;
+import jdamvc.application.models.UserModel;
 import java.text.DateFormat;
 import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
@@ -39,7 +39,7 @@ public class Auth
             String passCol  =   AuthConfig.PASSWORD_COL.toUpperCase();
             
             //Fetch user
-            User attempt    =   new User(username);
+            UserModel attempt    =   new UserModel(username);
             if(attempt.get(userCol) == null || attempt.get(passCol) == null) throw new Exception("Account was not found");
             else
             {
