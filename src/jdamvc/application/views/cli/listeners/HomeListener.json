@@ -1,0 +1,14 @@
+{
+    "commands":
+    {
+        "HelloWorld":
+        {
+            "commandName": "HelloWorld",
+            "paramTypes": [],
+            "className": "HomeView",
+            "methodName": "helloWorld",
+            "commandDescription": "Say hello!"
+        }
+    }
+    
+}
