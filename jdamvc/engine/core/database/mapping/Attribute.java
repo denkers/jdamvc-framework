@@ -9,5 +9,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.CLASS)
 public @interface Attribute
 {
+    String name() default "";
     
+    boolean isPrimaryKey() default false;
 }
