@@ -60,14 +60,6 @@ public abstract class Model
         initColumns();
     }
     
-    //Create model that maps to an existing row
-    //Pass the row primary key value
-    //Row data fills the model's data
-    public Model(Object id)
-    {
-        this();
-        fetchExisting(id);
-    }
     
     //Initializes the tables mapping properties
     //Implementation should initialize table name
