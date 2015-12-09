@@ -383,7 +383,7 @@ public final class Agent extends CommandInterpreter
     
     //Returns the agents listener
     @Override
-    public String getCommandsFile()
+    public String getListenerPath()
     {
         return "/engine/config/listeners/AgentListener.json";
     }

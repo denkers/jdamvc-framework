@@ -56,7 +56,7 @@ public abstract class AbstractView extends CommandInterpreter implements View
     //Views still need to output their listener file path
     //This path is necessary to load commands for the view
     @Override
-    protected abstract String getCommandsFile();
+    protected abstract String getListenerPath();
     
     //Send a message to the view
     public void pass(String messageName, String message)

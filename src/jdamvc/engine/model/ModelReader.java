@@ -1,4 +1,3 @@
-
 package jdamvc.engine.model;
 
 import java.lang.annotation.Annotation;

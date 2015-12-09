@@ -60,7 +60,7 @@ public abstract class GUIView extends AbstractView
     }
     
     @Override
-    protected String getCommandsFile()
+    protected String getListenerPath()
     {
         return null;
     }

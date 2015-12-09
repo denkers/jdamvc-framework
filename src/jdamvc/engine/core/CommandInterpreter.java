@@ -104,14 +104,14 @@ public abstract class CommandInterpreter implements CommandExecute
     
     //Implementors should return the path to the listeners json file
     //Listeners can be found in engine\config\listeners
-    protected abstract String getCommandsFile();
+    protected abstract String getListenerPath();
     
     
     //Gets the commands listener path
     //Fetches all commands from the listener
     protected void initCommands()
     {
-        String listenerFile     =   getCommandsFile();
+        String listenerFile     =   getListenerPath();
         
         if(listenerFile != null)
             commands                =   CommandListener.loadFactory(listenerFile).getCommands();

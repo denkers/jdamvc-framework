@@ -78,7 +78,13 @@ public class RouteHandler
             if(foundPath == null) 
                 throw new NoSuchMethodException("Route was not found");
             else           
-                return call(foundPath, params, paramTypes, data);
+            {
+                View view = call(foundPath, params, paramTypes, data);
+                if(view != null)
+                    view.setPath(foundPath);
+                
+                return view;
+            }
         }
         
         catch(ClassNotFoundException | NoSuchMethodException | IllegalAccessException | InvocationTargetException | InstantiationException e)
