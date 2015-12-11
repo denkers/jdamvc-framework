@@ -53,22 +53,22 @@ public class Config
     //      AUTH CONFIG
     //--------------------------------------------------------------------------
     //The table name used for user authentication
-    public static final String AUTH_TABLE           =   "users";
+    public static String AUTH_TABLE;
     
     //The hashing algorithm used for passwords
-    public static final String HASH_ALGORITHM       =   "SHA-1";
+    public static String HASH_ALGORITHM;
     
     //A prefix used for the salt in the password hash
-    public static final String SALT_PREFIX          =   "vb+FwcR~Sj+bq5imRBJd3%L";
+    public static String SALT_PREFIX;
     
     //The encoding format used in hashing
-    public static final String ENC_FORMAT           =   "utf-8";
+    public static String ENC_FORMAT;
     
     //The primary key column name in the auth table
-    public static final String USERNAME_COL         =   "username";
+    public static String USERNAME_COL;
     
     //The password column in the auth table
-    public static final String PASSWORD_COL         =   "password";
+    public static String PASSWORD_COL;
     //--------------------------------------------------------------------------
     
     
@@ -78,31 +78,31 @@ public class Config
     //      DATABASE CONFIG   
     //--------------------------------------------------------------------------
     //database server address
-    public static final String SERVER           =   "localhost";
+    public static String SERVER;
     
     //database port - default: 1527
-    public static final int PORT                =   1527;
+    public static  int PORT;
     
      //database server username
-    public static final String DB_USERNAME      =   "username";
+    public static String DB_USERNAME;
     
     //database server password
-    public static final String DB_PASSWORD      =   "password";
+    public static String DB_PASSWORD;
     
     //active live database name
-    public static final String DATABASE         =   "production_db"; 
+    public static String DATABASE; 
     
     //the test database name
-    public static final String TEST_DATABASE    =   "testing_db"; 
+    public static String TEST_DATABASE;
     
     //db connection driver
-    public static final String DRIVER           =   "jdbc:derby"; 
+    public static String DRIVER;
     
     //the default/using schema
-    public static final String SCHEMA           =   "APP"; 
+    public static String SCHEMA;
     
     //the default primary key used 
-    public static final String DEFAULT_KEY      =   "id";
+    public static  String DEFAULT_KEY;
     //--------------------------------------------------------------------------
     
     
@@ -112,28 +112,28 @@ public class Config
     //      LOGGING CONFIG
     //--------------------------------------------------------------------------
     //enables/disables logging of all admin activities in system
-    public static final boolean ENABLE_AUTH_LOG       =       true;
+    public static boolean ENABLE_AUTH_LOG;
     
     //enables/disables logging of user authentication and access
-    public static final boolean ENABLE_ADMIN_LOG      =       true;
+    public static boolean ENABLE_ADMIN_LOG;
     
     //enables/disable logging of all database queries from server
-    public static final boolean ENABLE_DATA_LOG       =       true;
+    public static  boolean ENABLE_DATA_LOG;
     
     //enables/disable logging of debug messages
-    public static final boolean ENABLE_DEBUG_LOG      =       true;
+    public static boolean ENABLE_DEBUG_LOG;
     
     //set the max size in bytes for each log file
-    public static final int LOG_MAX_SIZE              =       5242880;
+    public static int LOG_MAX_SIZE;
     
     //set the logs directory
-    public static final String LOG_PATH               =       "data/logs/";
+    public static String LOG_PATH;
     
     //set the max number of log files created after hitting max size
-    public static final int LOG_FILE_MAX_COUNT        =       1;
+    public static int LOG_FILE_MAX_COUNT;
     
     //set the default log extension
-    public static final String LOG_FILE_EXT           =       ".log";
+    public static String LOG_FILE_EXT;
    //--------------------------------------------------------------------------
     
     private static Document getDocument(String path)
