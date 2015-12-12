@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<LoggingConfig>
+    <enableAuthLog>true</enableAuthLog> 
+    <enableAdminLog>true</enableAdminLog>
+    <enableDataLog>true</enableDataLog>
+    <enableDebugLog>true</enableDebugLog>
+    <maxLogSize>10000</maxLogSize>
+    <logPath>data/logs</logPath>
+    <logCount>1</logCount>
+    <logExtension>.log</logExtension>
+</LoggingConfig>
