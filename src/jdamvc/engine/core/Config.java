@@ -136,13 +136,17 @@ public class Config
     public static String LOG_FILE_EXT;
    //--------------------------------------------------------------------------
     
+    
+    
     private static Document getDocument(String path)
     {
         try
         {
             File configFile             =   new File(Config.class.getResource(path).getFile());
             DocumentBuilder dBuilder    =   DocumentBuilderFactory.newInstance().newDocumentBuilder();
-            return dBuilder.parse(configFile);
+            Document doc                =   dBuilder.parse(configFile);
+            doc.getDocumentElement().normalize();
+            return doc;
         }
         
         catch(ParserConfigurationException | SAXException | IOException e)
@@ -151,11 +155,70 @@ public class Config
         }
     }
     
+/*        //Enabling debug mode will show all debug output messages
+    public static boolean DEBUG_MODE;
+    
+    //Enabling GUI mode will show the applications GUI, disable for CUI
+    public static boolean GUI_MODE;
+    
+    //The applications name shown on winodws, titles etc.
+    public static String APP_NAME;
+    
+    //The width of the GUI window
+    public static int WINDOW_WIDTH;
+    
+    //The height of the GUI window
+    public static int WINDOW_HEIGHT;
+    
+    //The relative path to the apps images directory
+    public static String RESOURCE_DIR;
+    
+    //Enabling will allow users to save credentials
+    public static boolean ALLOW_CRED_SAVE;
+    
+    //The path to the user stored credentials file
+    public static String CRED_SAVE_FILE;
+    
+    //Notifications are checked and updated every NOTIFICATION_TIME ms
+    public static int NOTIFICATION_TIME;
+    
+    //Enable to show coloured text in the CUI
+    //Colours have only been tested on linux
+    public static boolean CUI_COLOURS; */
+    
+    public static boolean nodeBoolValue(String value)
+    {
+        return value.equalsIgnoreCase("true") || value.equals("1");
+    }
+    
+    public static int nodeIntValue(String value)
+    {
+        try
+        {
+            return Integer.parseInt(value);
+        }
+        
+        catch(NumberFormatException e)
+        {
+            return 0;
+        }
+    }
+    
     private static void initAppConfig()
     {
-        String path     =   "application/config/AppConfig.xml";
-        Document doc    =   getDocument(path);
+        String path         =   "application/config/AppConfig.xml";
+        Document doc        =   getDocument(path);
         
+        DEBUG_MODE          =   nodeBoolValue(doc.getElementsByTagName("debugMode").item(0).getTextContent());
+        GUI_MODE            =   nodeBoolValue(doc.getElementsByTagName("guiMode").item(0).getTextContent());
+        APP_NAME            =   doc.getElementsByTagName("appName").item(0).getTextContent();
+        WINDOW_WIDTH        =   nodeIntValue(doc.getElementsByTagName("windowWidth").item(0).getTextContent());
+        WINDOW_HEIGHT       =   nodeIntValue(doc.getElementsByTagName("windowHeight").item(0).getTextContent());
+        RESOURCE_DIR        =   doc.getElementsByTagName("resourceDirectory").item(0).getTextContent();
+        ALLOW_CRED_SAVE     =   nodeBoolValue(doc.getElementsByTagName("saveCredentials").item(0).getTextContent());
+        CRED_SAVE_FILE      =   doc.getElementsByTagName("credentialsFile").item(0).getTextContent();
+        NOTIFICATION_TIME   =   nodeIntValue(doc.getElementsByTagName("notificationTime").item(0).getTextContent());
+        CUI_COLOURS         =   nodeBoolValue(doc.getElementsByTagName("cuiColors").item(0).getTextContent());
     }
     
     private static void initAuthConfig()
