@@ -203,16 +203,37 @@ public class Config
         PASSWORD_COL        =   doc.getElementsByTagName("passwordColumn").item(0).getTextContent();
     }
     
+    
     private static void initDatabaseConfig()
     {
-        String path     =   "application/config/DatabaseConfig.xml";
-        Document doc    =   getDocument(path);
+        String path         =   "application/config/DatabaseConfig.xml";
+        Document doc        =   getDocument(path);
+        
+        SERVER              =   doc.getElementsByTagName("server").item(0).getTextContent();
+        PORT                =   nodeIntValue(doc.getElementsByTagName("port").item(0).getTextContent());
+        DB_USERNAME         =   doc.getElementsByTagName("username").item(0).getTextContent();
+        DB_PASSWORD         =   doc.getElementsByTagName("password").item(0).getTextContent();
+        DATABASE            =   doc.getElementsByTagName("database").item(0).getTextContent();
+        TEST_DATABASE       =   doc.getElementsByTagName("testDatabase").item(0).getTextContent();
+        DRIVER              =   doc.getElementsByTagName("driver").item(0).getTextContent();
+        SCHEMA              =   doc.getElementsByTagName("schema").item(0).getTextContent();
+        DEFAULT_KEY         =   doc.getElementsByTagName("defaultKeyName").item(0).getTextContent();
     }
+    
     
     private static void initLoggingConfig()
     {
-        String path     =   "application/config/LoggingConifg.xml";
-        Document doc    =   getDocument(path);
+        String path         =   "application/config/LoggingConifg.xml";
+        Document doc        =   getDocument(path);
+        
+        ENABLE_AUTH_LOG     =   nodeBoolValue(doc.getElementsByTagName("enableAuthLog").item(0).getTextContent());
+        ENABLE_ADMIN_LOG    =   nodeBoolValue(doc.getElementsByTagName("enableAdminLog").item(0).getTextContent());
+        ENABLE_DATA_LOG     =   nodeBoolValue(doc.getElementsByTagName("enableDataLog").item(0).getTextContent());
+        ENABLE_DEBUG_LOG    =   nodeBoolValue(doc.getElementsByTagName("enableDebugLog").item(0).getTextContent());
+        LOG_MAX_SIZE        =   nodeIntValue(doc.getElementsByTagName("maxLogSize").item(0).getTextContent());
+        LOG_PATH            =   doc.getElementsByTagName("logPath").item(0).getTextContent();
+        LOG_FILE_MAX_COUNT  =   nodeIntValue(doc.getElementsByTagName("logCount").item(0).getTextContent());
+        LOG_FILE_EXT        =   doc.getElementsByTagName("logExtension").item(0).getTextContent();
     }
     
     public static void initConfig()
