@@ -155,37 +155,6 @@ public class Config
         }
     }
     
-/*        //Enabling debug mode will show all debug output messages
-    public static boolean DEBUG_MODE;
-    
-    //Enabling GUI mode will show the applications GUI, disable for CUI
-    public static boolean GUI_MODE;
-    
-    //The applications name shown on winodws, titles etc.
-    public static String APP_NAME;
-    
-    //The width of the GUI window
-    public static int WINDOW_WIDTH;
-    
-    //The height of the GUI window
-    public static int WINDOW_HEIGHT;
-    
-    //The relative path to the apps images directory
-    public static String RESOURCE_DIR;
-    
-    //Enabling will allow users to save credentials
-    public static boolean ALLOW_CRED_SAVE;
-    
-    //The path to the user stored credentials file
-    public static String CRED_SAVE_FILE;
-    
-    //Notifications are checked and updated every NOTIFICATION_TIME ms
-    public static int NOTIFICATION_TIME;
-    
-    //Enable to show coloured text in the CUI
-    //Colours have only been tested on linux
-    public static boolean CUI_COLOURS; */
-    
     public static boolean nodeBoolValue(String value)
     {
         return value.equalsIgnoreCase("true") || value.equals("1");
@@ -223,8 +192,15 @@ public class Config
     
     private static void initAuthConfig()
     {
-        String path     =   "application/config/AuthConfig.xml";
-        Document doc    =   getDocument(path);
+        String path         =   "application/config/AuthConfig.xml";
+        Document doc        =   getDocument(path);
+        
+        AUTH_TABLE          =   doc.getElementsByTagName("authTable").item(0).getTextContent();
+        HASH_ALGORITHM      =   doc.getElementsByTagName("hashAlgorithm").item(0).getTextContent();
+        SALT_PREFIX         =   doc.getElementsByTagName("saltPrefix").item(0).getTextContent();
+        ENC_FORMAT          =   doc.getElementsByTagName("encFormat").item(0).getTextContent();
+        USERNAME_COL        =   doc.getElementsByTagName("usernameColumn").item(0).getTextContent();
+        PASSWORD_COL        =   doc.getElementsByTagName("passwordColumn").item(0).getTextContent();
     }
     
     private static void initDatabaseConfig()
