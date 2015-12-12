@@ -4,7 +4,7 @@
 //	Routes
 //====================================
 
-package jdamvc.application;
+package application;
 
 import jdamvc.engine.core.Router;
 
@@ -30,7 +30,6 @@ public class Routes extends Router
     @Override
     protected void initRoutes()
     {
-        add("getErrorPage", "BaseController", "getErrorView", "/error");
-        add("getHome", "MasterController", "getHomeView", "/home");
+        
     }
 }

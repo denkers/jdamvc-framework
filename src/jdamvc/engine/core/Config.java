@@ -138,62 +138,27 @@ public class Config
     
     
     
-    private static Document getDocument(String path)
-    {
-        try
-        {
-            File configFile             =   new File(Config.class.getResource(path).getFile());
-            DocumentBuilder dBuilder    =   DocumentBuilderFactory.newInstance().newDocumentBuilder();
-            Document doc                =   dBuilder.parse(configFile);
-            doc.getDocumentElement().normalize();
-            return doc;
-        }
-        
-        catch(ParserConfigurationException | SAXException | IOException e)
-        {
-            return null;
-        }
-    }
-    
-    public static boolean nodeBoolValue(String value)
-    {
-        return value.equalsIgnoreCase("true") || value.equals("1");
-    }
-    
-    public static int nodeIntValue(String value)
-    {
-        try
-        {
-            return Integer.parseInt(value);
-        }
-        
-        catch(NumberFormatException e)
-        {
-            return 0;
-        }
-    }
-    
     private static void initAppConfig()
     {
         String path         =   "application/config/AppConfig.xml";
-        Document doc        =   getDocument(path);
+        Document doc        =   XMLParser.getDocument(path);
         
-        DEBUG_MODE          =   nodeBoolValue(doc.getElementsByTagName("debugMode").item(0).getTextContent());
-        GUI_MODE            =   nodeBoolValue(doc.getElementsByTagName("guiMode").item(0).getTextContent());
+        DEBUG_MODE          =   XMLParser.nodeBoolValue(doc.getElementsByTagName("debugMode").item(0).getTextContent());
+        GUI_MODE            =   XMLParser.nodeBoolValue(doc.getElementsByTagName("guiMode").item(0).getTextContent());
         APP_NAME            =   doc.getElementsByTagName("appName").item(0).getTextContent();
-        WINDOW_WIDTH        =   nodeIntValue(doc.getElementsByTagName("windowWidth").item(0).getTextContent());
-        WINDOW_HEIGHT       =   nodeIntValue(doc.getElementsByTagName("windowHeight").item(0).getTextContent());
+        WINDOW_WIDTH        =   XMLParser.nodeIntValue(doc.getElementsByTagName("windowWidth").item(0).getTextContent());
+        WINDOW_HEIGHT       =   XMLParser.nodeIntValue(doc.getElementsByTagName("windowHeight").item(0).getTextContent());
         RESOURCE_DIR        =   doc.getElementsByTagName("resourceDirectory").item(0).getTextContent();
-        ALLOW_CRED_SAVE     =   nodeBoolValue(doc.getElementsByTagName("saveCredentials").item(0).getTextContent());
+        ALLOW_CRED_SAVE     =   XMLParser.nodeBoolValue(doc.getElementsByTagName("saveCredentials").item(0).getTextContent());
         CRED_SAVE_FILE      =   doc.getElementsByTagName("credentialsFile").item(0).getTextContent();
-        NOTIFICATION_TIME   =   nodeIntValue(doc.getElementsByTagName("notificationTime").item(0).getTextContent());
-        CUI_COLOURS         =   nodeBoolValue(doc.getElementsByTagName("cuiColors").item(0).getTextContent());
+        NOTIFICATION_TIME   =   XMLParser.nodeIntValue(doc.getElementsByTagName("notificationTime").item(0).getTextContent());
+        CUI_COLOURS         =   XMLParser.nodeBoolValue(doc.getElementsByTagName("cuiColors").item(0).getTextContent());
     }
     
     private static void initAuthConfig()
     {
         String path         =   "application/config/AuthConfig.xml";
-        Document doc        =   getDocument(path);
+        Document doc        =   XMLParser.getDocument(path);
         
         AUTH_TABLE          =   doc.getElementsByTagName("authTable").item(0).getTextContent();
         HASH_ALGORITHM      =   doc.getElementsByTagName("hashAlgorithm").item(0).getTextContent();
@@ -207,10 +172,10 @@ public class Config
     private static void initDatabaseConfig()
     {
         String path         =   "application/config/DatabaseConfig.xml";
-        Document doc        =   getDocument(path);
+        Document doc        =   XMLParser.getDocument(path);
         
         SERVER              =   doc.getElementsByTagName("server").item(0).getTextContent();
-        PORT                =   nodeIntValue(doc.getElementsByTagName("port").item(0).getTextContent());
+        PORT                =   XMLParser.nodeIntValue(doc.getElementsByTagName("port").item(0).getTextContent());
         DB_USERNAME         =   doc.getElementsByTagName("username").item(0).getTextContent();
         DB_PASSWORD         =   doc.getElementsByTagName("password").item(0).getTextContent();
         DATABASE            =   doc.getElementsByTagName("database").item(0).getTextContent();
@@ -224,15 +189,15 @@ public class Config
     private static void initLoggingConfig()
     {
         String path         =   "application/config/LoggingConifg.xml";
-        Document doc        =   getDocument(path);
+        Document doc        =   XMLParser.getDocument(path);
         
-        ENABLE_AUTH_LOG     =   nodeBoolValue(doc.getElementsByTagName("enableAuthLog").item(0).getTextContent());
-        ENABLE_ADMIN_LOG    =   nodeBoolValue(doc.getElementsByTagName("enableAdminLog").item(0).getTextContent());
-        ENABLE_DATA_LOG     =   nodeBoolValue(doc.getElementsByTagName("enableDataLog").item(0).getTextContent());
-        ENABLE_DEBUG_LOG    =   nodeBoolValue(doc.getElementsByTagName("enableDebugLog").item(0).getTextContent());
-        LOG_MAX_SIZE        =   nodeIntValue(doc.getElementsByTagName("maxLogSize").item(0).getTextContent());
+        ENABLE_AUTH_LOG     =   XMLParser.nodeBoolValue(doc.getElementsByTagName("enableAuthLog").item(0).getTextContent());
+        ENABLE_ADMIN_LOG    =   XMLParser.nodeBoolValue(doc.getElementsByTagName("enableAdminLog").item(0).getTextContent());
+        ENABLE_DATA_LOG     =   XMLParser.nodeBoolValue(doc.getElementsByTagName("enableDataLog").item(0).getTextContent());
+        ENABLE_DEBUG_LOG    =   XMLParser.nodeBoolValue(doc.getElementsByTagName("enableDebugLog").item(0).getTextContent());
+        LOG_MAX_SIZE        =   XMLParser.nodeIntValue(doc.getElementsByTagName("maxLogSize").item(0).getTextContent());
         LOG_PATH            =   doc.getElementsByTagName("logPath").item(0).getTextContent();
-        LOG_FILE_MAX_COUNT  =   nodeIntValue(doc.getElementsByTagName("logCount").item(0).getTextContent());
+        LOG_FILE_MAX_COUNT  =   XMLParser.nodeIntValue(doc.getElementsByTagName("logCount").item(0).getTextContent());
         LOG_FILE_EXT        =   doc.getElementsByTagName("logExtension").item(0).getTextContent();
     }
     
