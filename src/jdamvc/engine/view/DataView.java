@@ -6,7 +6,7 @@
 
 package jdamvc.engine.view;
 
-import jdamvc.engine.controller.ControllerMessage;
+import jdamvc.engine.controller.Message;
 
 //------------------------------------
 //              DATAVIEW
@@ -27,7 +27,7 @@ public interface DataView extends View
     public String getResponseMessage();
     
     //Returns the data from the controller
-    public ControllerMessage getResponseData();
+    public Message getResponseData();
     
     //Returns a json representation of the data
     public String getJson();

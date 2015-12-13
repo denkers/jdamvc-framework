@@ -6,7 +6,7 @@
 
 package jdamvc.engine.view;
 
-import jdamvc.engine.controller.ControllerMessage;
+import jdamvc.engine.controller.Message;
 import jdamvc.engine.core.CommandExecute;
 import jdamvc.engine.core.Path;
 
@@ -27,7 +27,7 @@ public interface View extends CommandExecute, ViewExplorer
     
     //Returns the messages passed to the view
     //These can be from the controller 
-    public ControllerMessage getViewData();
+    public Message getViewData();
     
     public void setPath(Path path);
     

@@ -6,7 +6,7 @@
 
 package jdamvc.engine.view;
 
-import jdamvc.engine.controller.ControllerMessage;
+import jdamvc.engine.controller.Message;
 import jdamvc.engine.core.Path;
 
 
@@ -14,16 +14,16 @@ public class ResponseDataView implements DataView
 {
     protected boolean responseStatus;
     protected String responseMessage;
-    protected ControllerMessage responseData;
+    protected Message responseData;
     protected int accessLevel;
     protected Path path;
     
     public ResponseDataView(String responseMessage, boolean responseStatus)
     {
-        this(responseMessage, responseStatus, new ControllerMessage(), 0);
+        this(responseMessage, responseStatus, new Message(), 0);
     }
     
-    public ResponseDataView(String responseMessage, boolean responseStatus, ControllerMessage responseData, int accessLevel)
+    public ResponseDataView(String responseMessage, boolean responseStatus, Message responseData, int accessLevel)
     {
         this.responseMessage    =   responseMessage;
         this.responseStatus     =   responseStatus;
@@ -66,7 +66,7 @@ public class ResponseDataView implements DataView
     }
 
     @Override
-    public ControllerMessage getResponseData()
+    public Message getResponseData()
     {
         return responseData;
     }
@@ -90,7 +90,7 @@ public class ResponseDataView implements DataView
     }
 
     @Override
-    public ControllerMessage getViewData() 
+    public Message getViewData() 
     {
         return responseData;
     }

@@ -6,7 +6,7 @@
 
 package jdamvc.engine.core;
 
-import jdamvc.engine.controller.ControllerMessage;
+import jdamvc.engine.controller.Message;
 import jdamvc.engine.view.View;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
@@ -38,7 +38,7 @@ public class RouteHandler
     //Pass the routes path or url
     //Path must be valid for redirection
     //Params are stripped if url
-    public static View go(String route, ControllerMessage data)
+    public static View go(String route, Message data)
     {
         try
         {
@@ -71,7 +71,7 @@ public class RouteHandler
     //Calls a controllers method with params
     //The number of params must match the routes 
     //controller method number of params
-    public static View go(String routeName, Object[] params, Class<?>[] paramTypes, ControllerMessage data)
+    public static View go(String routeName, Object[] params, Class<?>[] paramTypes, Message data)
     {
         Path foundPath  =   routes.getPath(routeName);   
         try
@@ -98,7 +98,7 @@ public class RouteHandler
     //Creates and calls the routes controller method
     //Controller and method of querying route must exist
     //Further redirection must be handled by the called controller
-    public static View call(Path path, Object[] params, Class<?>[] paramTypes, ControllerMessage data) 
+    public static View call(Path path, Object[] params, Class<?>[] paramTypes, Message data) 
     throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException
     {
         String controllerName    =   MessageFormat.format("{0}.{1}", CONTROLLER_PACKAGE, path.getController());

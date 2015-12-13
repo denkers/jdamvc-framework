@@ -14,20 +14,20 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 
-public class ControllerMessage 
+public class Message 
 {
     Map<String, Object> messages; //The messages to be passed to controller/view
     JsonArray data; //Data from result that can be passed
     
     //Creates controller with empty data and messages
     //Should be added to before passing
-    public ControllerMessage()
+    public Message()
     {
         this(new JsonArray());
     }
     
     //Creates controller with data
-    public ControllerMessage(JsonArray data)
+    public Message(JsonArray data)
     {
         messages    =   new LinkedHashMap<>();
         this.data   =   data;
@@ -46,14 +46,14 @@ public class ControllerMessage
     }
     
     //Adds a new message
-    public ControllerMessage add(String name, Object message)
+    public Message add(String name, Object message)
     {
         messages.put(name, message);
         return this;
     }
     
     //Adds all messages in other
-    public ControllerMessage addAll(Map<String, String> other)
+    public Message addAll(Map<String, String> other)
     {
         messages.putAll(other);
         return this;

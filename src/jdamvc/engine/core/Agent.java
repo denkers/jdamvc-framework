@@ -6,7 +6,7 @@
 
 package jdamvc.engine.core;
 
-import jdamvc.engine.controller.ControllerMessage;
+import jdamvc.engine.controller.Message;
 import jdamvc.engine.core.authentication.Session;
 import jdamvc.engine.core.authentication.StoredCredentials;
 import jdamvc.engine.view.GUIView;
@@ -217,7 +217,7 @@ public final class Agent extends CommandInterpreter
     }
     
     //Changes the view to route with params data
-    public static void setView(String route, ControllerMessage data)
+    public static void setView(String route, Message data)
     {
         View controllerView =   RouteHandler.go(route, data);
         setView(controllerView);

@@ -6,7 +6,7 @@
 
 package jdamvc.engine.view;
 
-import jdamvc.engine.controller.ControllerMessage;
+import jdamvc.engine.controller.Message;
 import jdamvc.engine.core.CommandInterpreter;
 import jdamvc.engine.core.Path;
 
@@ -20,7 +20,7 @@ import jdamvc.engine.core.Path;
 
 public abstract class AbstractView extends CommandInterpreter implements View
 {
-    protected ControllerMessage viewData; //The messages passed to the view
+    protected Message viewData; //The messages passed to the view
     protected View nextView; //The next view  if set
     protected View prevView; //The previous view if set
     protected Path path; //The path that was used to fetch the view
@@ -29,10 +29,10 @@ public abstract class AbstractView extends CommandInterpreter implements View
     //view details should be set later
     public AbstractView()
     {
-        this(new ControllerMessage());
+        this(new Message());
     }
     
-    public AbstractView(ControllerMessage viewData)
+    public AbstractView(Message viewData)
     {
         this.viewData   =   viewData;
     }
@@ -52,7 +52,7 @@ public abstract class AbstractView extends CommandInterpreter implements View
     
     //Returns the messages currently in the view
     @Override
-    public ControllerMessage getViewData()
+    public Message getViewData()
     {
         return viewData;
     }

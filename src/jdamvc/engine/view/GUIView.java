@@ -18,7 +18,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
-import jdamvc.engine.controller.ControllerMessage;
+import jdamvc.engine.controller.Message;
 
 
 public abstract class GUIView extends AbstractView
@@ -35,10 +35,10 @@ public abstract class GUIView extends AbstractView
     
     public GUIView()
     {
-        this(new ControllerMessage());
+        this(new Message());
     }
     
-    public GUIView(ControllerMessage viewData)
+    public GUIView(Message viewData)
     {
         super(viewData);
         initGUIView();

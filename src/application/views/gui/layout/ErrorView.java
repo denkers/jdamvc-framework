@@ -6,7 +6,7 @@
 
 package application.views.gui.layout;
 
-import jdamvc.engine.controller.ControllerMessage;
+import jdamvc.engine.controller.Message;
 import jdamvc.engine.core.Agent;
 import java.awt.Color;
 import java.awt.Font;
@@ -25,7 +25,7 @@ public class ErrorView extends GUIView
         super();
     }
     
-    public ErrorView(ControllerMessage data)
+    public ErrorView(Message data)
     {
         super(data);
     }

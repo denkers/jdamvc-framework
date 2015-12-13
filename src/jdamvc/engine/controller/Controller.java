@@ -26,20 +26,20 @@ public abstract class Controller
         POST //Submitting data to a source
     }
     
-    protected ControllerMessage controllerData; //the passed input data for a post request
+    protected Message controllerData; //the passed input data for a post request
     protected RequestType requestType; //immediate request type (GET, POST)
     protected Path path; //the controller sessions path
     
     public Controller()
     {
-        controllerData  =   new ControllerMessage();
+        controllerData  =   new Message();
         requestType     =   RequestType.GET;
         path            =   null;
     }      
     
     //Returns the controller sessions input data
     //Data may be empty if GET request
-    protected ControllerMessage getPostData()
+    protected Message getPostData()
     {
         return controllerData;
     }
@@ -83,7 +83,7 @@ public abstract class Controller
         }
     }
     
-    public void setControllerData(ControllerMessage controllerData)
+    public void setControllerData(Message controllerData)
     {
         this.controllerData =   controllerData;
     }
