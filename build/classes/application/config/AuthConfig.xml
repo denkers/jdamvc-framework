@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<AuthConfig>
+    <authTable>Users</authTable>   
+    <hashAlgorithm>MD5</hashAlgorithm>
+    <saltPrefix>qwe523qowelas</saltPrefix>
+    <encFormat>utf-8</encFormat>
+    <usernameColumn>username</usernameColumn>
+    <passwordColumn>password</passwordColumn>
+</AuthConfig>

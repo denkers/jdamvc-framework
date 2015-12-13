@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Routes>
+    <Route name="getHome" controller="MasterController" method="getHomeView" path="/home" />
+    
+    <RouteGroup prefix="user">
+        <Route name="getProfile" controller="UserController" method="getUserProfile" path="/profile" />
+    </RouteGroup>
+</Routes>

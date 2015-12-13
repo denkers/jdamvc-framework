@@ -136,7 +136,10 @@ public class Config
     public static String LOG_FILE_EXT;
    //--------------------------------------------------------------------------
     
-    
+    static
+    {
+        initAppConfig();
+    }
     
     private static void initAppConfig()
     {

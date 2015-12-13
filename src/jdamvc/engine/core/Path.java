@@ -89,7 +89,7 @@ public class Path
         if(group != null)
             base += group.getRootPrefix();
         
-        return base.substring(0, base.length() - 1) + location;
+        return ((base.length() > 0)? base.substring(0, base.length() - 1) : base)  + location;
     }
     
     @Override

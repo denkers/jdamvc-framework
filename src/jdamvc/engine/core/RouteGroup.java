@@ -103,6 +103,9 @@ public class RouteGroup
     public void addPath(Path path)
     {
         if(path != null)
+        {
+            path.setGroup(this);
             childPaths.put(path.getName(), path);        
+        }
     }
 }

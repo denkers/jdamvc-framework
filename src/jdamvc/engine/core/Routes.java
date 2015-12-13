@@ -4,9 +4,11 @@
 //	Routes
 //====================================
 
-package jdamvc.engine.core;
+
 
 //------------------------------------------
+
+package jdamvc.engine.core;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
@@ -95,19 +97,17 @@ public class Routes extends Router
     {
         String routePath    =   "application/Routes.xml";
         Document doc        =   XMLParser.getDocument(routePath);
+        Node node           =   doc.getFirstChild().getChildNodes().item(0);
         
-        NodeList childNodes     =   doc.getChildNodes();
-        int numNodes            =   childNodes.getLength();
-        
-        for(int i = 0; i < numNodes; i++)
+        do
         {
-            Node node   =   childNodes.item(i);
-            
+            System.out.println("name: " + node.getNodeName());
             if(isRouteNode(node))
                 initRouteNode(node, null);
             
             else if(isRouteGroupNode(node))
                 initRouteGroupNode(node, null);
         }
+        while((node = node.getNextSibling()) != null);
     }
 }

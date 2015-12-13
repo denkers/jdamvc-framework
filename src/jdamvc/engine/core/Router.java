@@ -39,6 +39,7 @@ public abstract class Router
         urlRoutes     =   new HashMap<>();
         base          =   new RouteGroup(Config.APP_NAME);
         initRoutes();
+
     }
     
     //Routes need to be created and defined
