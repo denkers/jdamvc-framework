@@ -6,6 +6,7 @@
 
 package jdamvc.engine.view.layout;
 
+import java.awt.MenuBar;
 import jdamvc.engine.view.GUIView;
 import java.awt.Point;
 import javax.swing.JFrame;
@@ -24,7 +25,6 @@ public class Window extends JFrame
         
         layout      =   new Layout();
         getContentPane().add(layout);
-        //layout.getMenu().attachTo(this);
         
         Point dim   =   getWindowDim();
         setSize(dim.x, dim.y);
@@ -53,6 +53,11 @@ public class Window extends JFrame
     public void setActiveView(GUIView view)
     {
         layout.getViewPane().setActiveView(view);
+    }
+    
+    public static void attachMenu(MenuBar menu)
+    {
+        window.setMenuBar(menu);
     }
     
     public static Window getWindowInstance()

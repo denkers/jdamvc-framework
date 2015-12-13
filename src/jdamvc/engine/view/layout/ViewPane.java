@@ -56,13 +56,15 @@ public class ViewPane extends JPanel
     
     public void showTransition()
     {
+        if(transitionView == null) return;
+        
         CardLayout cLayout  =   (CardLayout) getLayout();
         cLayout.show(this, TRANSITION_VIEW);
     }
     
     public void hideTransition()
     {
-        if(activeView == null) return;
+        if(activeView == null || transitionView == null) return;
         
         CardLayout cLayout  =   (CardLayout) getLayout();
         cLayout.show(this, ACTIVE_VIEW);
