@@ -33,12 +33,16 @@
   
   </dependencies>
 
+  <properties>
+	  <app.package>com/company/app</app.package>
+  </properties>
+
   <build>
 	  <sourceDirectory>src/jdamvc</sourceDirectory>
 	  <resources>
 		<resource>
 			<directory>${basedir}/src/application</directory>
-			<targetPath>${basedir}/target</targetPath>
+			<targetPath>${basedir}/target/${app.package}</targetPath>
 		</resource>
 	</resources>
 
