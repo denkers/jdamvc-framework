@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Routes>
+    <Route name="getError" controller="MasterController" method="getErrorView" path="/error" />
+    <Route name="getTransition" controller="MasterController" method="getTransitionView" path="/transition" />
     <Route name="getHome" controller="MasterController" method="getHomeView" path="/home" />
     
     <RouteGroup prefix="user">

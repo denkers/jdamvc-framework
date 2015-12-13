@@ -6,6 +6,8 @@
 
 package application.controllers;
 
+import application.views.gui.layout.ErrorView;
+import application.views.gui.layout.TransitionView;
 import jdamvc.engine.controller.Controller;
 import jdamvc.engine.controller.ControllerMessage;
 import jdamvc.engine.core.Path;
@@ -28,6 +30,10 @@ public class MasterController extends Controller
         super(postData, requestType, path);
     }
     
+    public View getTransitionView()
+    {
+        return new TransitionView();
+    }
     
     //Returns an error view
     //The passed errorMessage is displayed in the views title
@@ -36,6 +42,6 @@ public class MasterController extends Controller
     {
         ControllerMessage data  =   new ControllerMessage();
         data.add("errorMessage", errorMessage);
-        return prepareView(new ErrorView(data));
+        return new ErrorView(data);
     }
 }
