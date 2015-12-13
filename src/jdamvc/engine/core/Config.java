@@ -57,6 +57,12 @@ public class Config
     
     //The route name for the transition view
     public static String TRANS_VIEW_ROUTE;
+    
+    //Enables/disables resizing of the window
+    public static boolean WINDOW_RESIZE;
+    
+    //Centres the location of the window
+    public static boolean WINDOW_CENTRE;
     //--------------------------------------------------------------------------
     
     
@@ -178,6 +184,8 @@ public class Config
         RESOURCE_DIR        =   doc.getElementsByTagName("resourceDirectory").item(0).getTextContent();
         ERROR_VIEW_ROUTE    =   doc.getElementsByTagName("errorRoute").item(0).getTextContent();
         TRANS_VIEW_ROUTE    =   doc.getElementsByTagName("transitionRoute").item(0).getTextContent();
+        WINDOW_RESIZE       =   XMLParser.nodeBoolValue(doc.getElementsByTagName("windowResizable").item(0).getTextContent());
+        WINDOW_CENTRE       =   XMLParser.nodeBoolValue(doc.getElementsByTagName("centreWindow").item(0).getTextContent());
     }
     
     private static void initAuthConfig()

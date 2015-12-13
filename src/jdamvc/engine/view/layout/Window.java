@@ -29,8 +29,10 @@ public class Window extends JFrame
         Point dim   =   getWindowDim();
         setSize(dim.x, dim.y);
         
-        setResizable(false);
-        setLocationRelativeTo(null);
+        setResizable(Config.WINDOW_RESIZE);
+        
+        if(Config.WINDOW_CENTRE)
+            setLocationRelativeTo(null);
     }
     
     public void display()
