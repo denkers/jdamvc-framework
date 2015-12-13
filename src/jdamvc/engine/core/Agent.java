@@ -83,7 +83,7 @@ public final class Agent extends CommandInterpreter
         
         if(guiMode)
         {
-            window  =   new Window();
+            window  =   Window.getWindowInstance();
             window.display();
         }
         

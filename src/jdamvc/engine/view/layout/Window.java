@@ -15,8 +15,9 @@ import jdamvc.engine.core.Config;
 public class Window extends JFrame
 {
     private final Layout layout;
+    private static Window window;
     
-    public Window()
+    private Window()
     {
         super(Config.APP_NAME);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -50,5 +51,13 @@ public class Window extends JFrame
     public void setActiveView(GUIView view)
     {
         layout.getViewPane().setActiveView(view);
+    }
+    
+    public static Window getWindowInstance()
+    {
+        if(window == null)
+            window = new Window();
+        
+        return window;
     }
 }
