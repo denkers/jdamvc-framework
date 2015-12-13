@@ -4,7 +4,7 @@
 //	ErrorView
 //====================================
 
-package jdamvc.application.views.gui.layout;
+package application.views.gui.layout;
 
 import jdamvc.engine.controller.ControllerMessage;
 import jdamvc.engine.core.Agent;
