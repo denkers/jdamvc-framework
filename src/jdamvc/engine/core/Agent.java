@@ -6,15 +6,14 @@
 
 package jdamvc.engine.core;
 
-import jdamvc.application.config.AppConfig;
 import jdamvc.engine.controller.ControllerMessage;
 import jdamvc.engine.core.authentication.Session;
 import jdamvc.engine.core.authentication.StoredCredentials;
 import jdamvc.engine.view.GUIView;
 import jdamvc.engine.view.View;
-import jdamvc.application.views.gui.layout.HeaderNavigation;
-import jdamvc.application.views.gui.layout.Layout;
-import jdamvc.application.views.gui.layout.Window;
+import application.views.gui.layout.HeaderNavigation;
+import application.views.gui.layout.Layout;
+import application.views.gui.layout.Window;
 import java.awt.event.ActionEvent;
 import java.util.Scanner;
 import javax.swing.Timer;
@@ -70,7 +69,7 @@ public final class Agent extends CommandInterpreter
     //Creates and starts the apps agent
     public Agent()
     {
-        guiMode             =   AppConfig.GUI_MODE;
+        guiMode             =   Config.GUI_MODE;
         agentThread         =   new Thread(listen);
         fetchCredentials();
         begin();

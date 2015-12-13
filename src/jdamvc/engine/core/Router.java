@@ -6,7 +6,6 @@
 
 package jdamvc.engine.core;
 
-import jdamvc.application.config.AppConfig;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -38,7 +37,7 @@ public abstract class Router
     {
         namedRoutes   =   new HashMap<>();
         urlRoutes     =   new HashMap<>();
-        base          =   new RouteGroup(AppConfig.APP_NAME);
+        base          =   new RouteGroup(Config.APP_NAME);
         initRoutes();
     }
     

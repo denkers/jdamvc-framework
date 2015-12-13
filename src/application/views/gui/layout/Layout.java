@@ -4,15 +4,15 @@
 //	Layout
 //====================================
 
-package jdamvc.application.views.gui.layout;
+package application.views.gui.layout;
 
-import jdamvc.application.config.AppConfig;
 import jdamvc.engine.core.ExceptionOutput;
 import java.awt.BorderLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import jdamvc.engine.core.Config;
 
 
 public class Layout extends JPanel
@@ -65,7 +65,7 @@ public class Layout extends JPanel
     
     public static String getImage(String name)
     {
-        return AppConfig.RESOURCE_DIR + name;
+        return Config.RESOURCE_DIR + name;
     }
     
     public static void makeTransparent(JButton button)

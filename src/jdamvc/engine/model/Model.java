@@ -9,7 +9,6 @@ package jdamvc.engine.model;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import jdamvc.engine.core.JsonParser;
-import jdamvc.application.config.DatabaseConfig;
 import jdamvc.engine.core.database.Column;
 import jdamvc.engine.core.DataConnector;
 import jdamvc.engine.core.ExceptionOutput;
@@ -20,6 +19,7 @@ import java.text.MessageFormat;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import jdamvc.engine.core.Config;
 
 
 //------------------------------------------
@@ -38,7 +38,7 @@ public abstract class Model
     
     //The table's primary key column name
     //For default see DatabaseConfig - typically "ID" column
-    protected String primaryKey = DatabaseConfig.DEFAULT_KEY;
+    protected String primaryKey = Config.DEFAULT_KEY;
     
     //The columns in the table
     //Columns are fetched on initialization by initColumns()

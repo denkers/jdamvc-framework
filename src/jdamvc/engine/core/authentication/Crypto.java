@@ -6,12 +6,12 @@
 
 package jdamvc.engine.core.authentication;
 
-import jdamvc.application.config.AuthConfig;
 import jdamvc.engine.core.ExceptionOutput;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
+import jdamvc.engine.core.Config;
 
 //------------------------------------
 //             CRYPTO
@@ -34,9 +34,9 @@ public class Crypto
             String saltedInput  =   salt + input; //Salt the input
             
             //Get hashing algorithm (Default: SHA-1)
-            String algorithm    =   AuthConfig.HASH_ALGORITHM;
+            String algorithm    =   Config.HASH_ALGORITHM;
             //Get encoding format (Default: utf-8)
-            String format       =   AuthConfig.ENC_FORMAT;
+            String format       =   Config.ENC_FORMAT;
             
             //Make hash bytes 
             MessageDigest enc   =   MessageDigest.getInstance(algorithm);
@@ -60,7 +60,7 @@ public class Crypto
     //An additional prefix is added (see AuthConfig) to salt
     public static String salt(String postfix)
     {
-        String prefix  =   AuthConfig.SALT_PREFIX;
+        String prefix  =   Config.SALT_PREFIX;
         return prefix + postfix;
     }
 }

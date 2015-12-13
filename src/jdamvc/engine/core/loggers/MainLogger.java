@@ -6,7 +6,6 @@
 
 package jdamvc.engine.core.loggers;
 
-import jdamvc.application.config.LoggingConfig;
 import jdamvc.engine.core.ExceptionOutput;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -14,6 +13,7 @@ import java.util.Date;
 import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import jdamvc.engine.core.Config;
 
 
 //------------------------------------
@@ -124,7 +124,7 @@ public final class MainLogger
     public static String formatLogName(String file)
     {
         final char delimiter            =   '_';
-        final String folder             =   LoggingConfig.LOG_PATH;
+        final String folder             =   Config.LOG_PATH;
         Date time                       =   new Date();
         SimpleDateFormat date_format    =   new SimpleDateFormat("dd-MM-yyyy");
         String date                     =   date_format.format(time);

@@ -6,8 +6,6 @@
 
 package jdamvc.engine.core;
 
-import jdamvc.application.config.AppConfig;
-import jdamvc.application.config.DatabaseConfig;
 import jdamvc.engine.core.loggers.MainLogger;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -70,7 +68,7 @@ public class DataConnector implements AutoCloseable
             conn    =   DriverManager.getConnection(connectionURL);
             
             //Sets the active schema
-            conn.setSchema(DatabaseConfig.SCHEMA);
+            conn.setSchema(Config.SCHEMA);
         }
 
         catch(SQLException e)
@@ -78,7 +76,7 @@ public class DataConnector implements AutoCloseable
             ExceptionOutput.output("Failed to connect to Database, application will now shutdown", ExceptionOutput.OutputType.MESSAGE);      
             close();
             
-            if(!AppConfig.GUI_MODE)
+            if(!Config.GUI_MODE)
             {
                 try
                 {
@@ -215,7 +213,7 @@ public class DataConnector implements AutoCloseable
             //Logging config is checked in log()
             MainLogger.log(query, MainLogger.DATA_LOGGER);
       
-            if(AppConfig.DEBUG_MODE)
+            if(Config.DEBUG_MODE)
                 ExceptionOutput.output(query, ExceptionOutput.OutputType.DEBUG);
             
             PreparedStatement statement = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);

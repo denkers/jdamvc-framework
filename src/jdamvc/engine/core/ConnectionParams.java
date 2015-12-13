@@ -6,7 +6,6 @@
 
 package jdamvc.engine.core;
 
-import jdamvc.application.config.DatabaseConfig;
 import java.text.MessageFormat;
 import java.util.Iterator;
 import java.util.Map;
@@ -25,12 +24,12 @@ public class ConnectionParams
     //Creates a DataConnection with default Database configurations
     public ConnectionParams()
     {
-        this(DatabaseConfig.DATABASE);
+        this(Config.DATABASE);
     }
     
     public ConnectionParams(String database)
     {
-        this(DatabaseConfig.SERVER, DatabaseConfig.PORT, DatabaseConfig.DB_USERNAME, DatabaseConfig.DB_PASSWORD, database, DatabaseConfig.DRIVER);
+        this(Config.SERVER, Config.PORT, Config.DB_USERNAME, Config.DB_PASSWORD, database, Config.DRIVER);
     }
     
     //Creates a DataConnection with custom configurations

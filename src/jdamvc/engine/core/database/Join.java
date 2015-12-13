@@ -6,10 +6,10 @@
 
 package jdamvc.engine.core.database;
 
-import jdamvc.application.config.DatabaseConfig;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
+import jdamvc.engine.core.Config;
 
 
 //--------------------------------
@@ -80,8 +80,8 @@ public class Join
         (
             fromTable, 
             toTable, 
-            MessageFormat.format("{0}_{1}", toTable, DatabaseConfig.DEFAULT_KEY), 
-            DatabaseConfig.DEFAULT_KEY,
+            MessageFormat.format("{0}_{1}", toTable, Config.DEFAULT_KEY), 
+            Config.DEFAULT_KEY,
             joinType
         );
     }

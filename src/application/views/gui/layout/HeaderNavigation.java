@@ -4,23 +4,17 @@
 //	HeaderNavigation
 //====================================
 
-package jdamvc.application.views.gui.layout;
+package application.views.gui.layout;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import jdamvc.application.config.AppConfig;
 import jdamvc.engine.core.Agent;
-import jdamvc.engine.core.authentication.Session;
 import java.awt.BorderLayout;
-import java.awt.CardLayout;
-import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -29,19 +23,13 @@ import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.SwingUtilities;
-import javax.swing.event.ListSelectionEvent;
 import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.DefaultTableModel;
+import jdamvc.engine.core.Config;
 
 public class HeaderNavigation extends JPanel implements ActionListener
 {
@@ -263,7 +251,7 @@ public class HeaderNavigation extends JPanel implements ActionListener
             {
                 try
                 {
-                    sleep(AppConfig.NOTIFICATION_TIME);
+                    sleep(Config.NOTIFICATION_TIME);
                     updateUserPanel();
                 }
                 

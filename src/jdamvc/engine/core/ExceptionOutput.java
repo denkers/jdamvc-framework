@@ -6,7 +6,6 @@
 
 package jdamvc.engine.core;
 
-import jdamvc.application.config.AppConfig;
 import jdamvc.engine.core.loggers.MainLogger;
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -28,7 +27,7 @@ public class ExceptionOutput
     public static void output(String message, OutputType outputType)
     {
         //Output to console
-        if(!AppConfig.GUI_MODE)
+        if(!Config.GUI_MODE)
         {
             String prefix;
             if(outputType == OutputType.DEBUG)
@@ -50,7 +49,7 @@ public class ExceptionOutput
             //Only output to console messages to avoid spamming user
             if(outputType == OutputType.MESSAGE)
                 JOptionPane.showMessageDialog(null, message);
-            else if(AppConfig.DEBUG_MODE)
+            else if(Config.DEBUG_MODE)
                 System.out.println("[Debug] " + message);
         }
     }

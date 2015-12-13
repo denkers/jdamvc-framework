@@ -4,7 +4,7 @@
 //	Menu
 //====================================
 
-package jdamvc.application.views.gui.layout;
+package application.views.gui.layout;
 
 import jdamvc.engine.core.Agent;
 import java.awt.Frame;

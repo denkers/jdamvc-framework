@@ -8,7 +8,6 @@ package jdamvc.engine.core.authentication;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import jdamvc.application.config.AppConfig;
 import jdamvc.engine.core.ExceptionOutput;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -17,6 +16,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import jdamvc.engine.core.Config;
 
 public class StoredCredentials
 {
@@ -32,14 +32,14 @@ public class StoredCredentials
     //Saves the stored credentials
     public synchronized void saveCredentials()
     {
-        if(AppConfig.ALLOW_CRED_SAVE)
+        if(Config.ALLOW_CRED_SAVE)
         {
             //Credentials are saved in JSON
             Gson gson           =   new GsonBuilder().setPrettyPrinting().create();
             String storedCreds  =   gson.toJson(this);
             
             //Write saved credentials
-            try(BufferedWriter bw   =   new BufferedWriter(new FileWriter(AppConfig.CRED_SAVE_FILE)))
+            try(BufferedWriter bw   =   new BufferedWriter(new FileWriter(Config.CRED_SAVE_FILE)))
             {
                 bw.write(storedCreds);
             }
@@ -54,11 +54,11 @@ public class StoredCredentials
     //Loads and returns the stored credentials
    public synchronized static StoredCredentials getSavedCredentials()
    {
-        if(AppConfig.ALLOW_CRED_SAVE)
+        if(Config.ALLOW_CRED_SAVE)
         {
             //Read saved credentials
             //Parse file in JSON
-            try(BufferedReader br   =   new BufferedReader(new FileReader(AppConfig.CRED_SAVE_FILE)))
+            try(BufferedReader br   =   new BufferedReader(new FileReader(Config.CRED_SAVE_FILE)))
             {
                 Gson gson   =   new Gson();
                 return gson.fromJson(br, StoredCredentials.class);

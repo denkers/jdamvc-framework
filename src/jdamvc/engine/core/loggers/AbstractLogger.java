@@ -6,11 +6,11 @@
 
 package jdamvc.engine.core.loggers;
 
-import jdamvc.application.config.LoggingConfig;
 import java.io.IOException;
 import java.util.logging.FileHandler;
 import java.util.logging.Handler;
 import java.util.logging.SimpleFormatter;
+import jdamvc.engine.core.Config;
 
 //--------------------------------------
 //          ABSTRACTLOGGER
@@ -29,7 +29,7 @@ public abstract class AbstractLogger implements Logging
     {
         this
         (
-            MainLogger.formatLogName(log_file) + "_%u%g" + LoggingConfig.LOG_FILE_EXT, 
+            MainLogger.formatLogName(log_file) + "_%u%g" + Config.LOG_FILE_EXT, 
             new SimpleFormatter()
         );
     }
@@ -49,8 +49,8 @@ public abstract class AbstractLogger implements Logging
         Handler fh =  new FileHandler
         (
                 log_file, //Log file name
-                LoggingConfig.LOG_MAX_SIZE, //Log max file size
-                LoggingConfig.LOG_FILE_MAX_COUNT, //Max number of logs created after max size
+                Config.LOG_MAX_SIZE, //Log max file size
+                Config.LOG_FILE_MAX_COUNT, //Max number of logs created after max size
                 true //Allow appending to existing logs
         );
         

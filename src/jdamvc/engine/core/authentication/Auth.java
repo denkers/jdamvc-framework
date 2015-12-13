@@ -6,7 +6,6 @@
 
 package jdamvc.engine.core.authentication;
 
-import jdamvc.application.config.AuthConfig;
 import jdamvc.engine.core.Agent;
 import jdamvc.engine.core.ExceptionOutput;
 import jdamvc.engine.core.loggers.MainLogger;
@@ -15,6 +14,7 @@ import java.text.DateFormat;
 import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import jdamvc.engine.core.Config;
 
 //---------------------------------------
 //              AUTH
@@ -35,8 +35,8 @@ public class Auth
         try
         {
             //Get user and password column names
-            String userCol  =   AuthConfig.USERNAME_COL.toUpperCase();
-            String passCol  =   AuthConfig.PASSWORD_COL.toUpperCase();
+            String userCol  =   Config.USERNAME_COL.toUpperCase();
+            String passCol  =   Config.PASSWORD_COL.toUpperCase();
             
             //Fetch user
             UserModel attempt    =   (UserModel) new UserModel().find(username);
