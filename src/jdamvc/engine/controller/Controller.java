@@ -26,41 +26,22 @@ public abstract class Controller
         POST //Submitting data to a source
     }
     
-    protected ControllerMessage postData; //the passed input data for a post request
+    protected ControllerMessage controllerData; //the passed input data for a post request
     protected RequestType requestType; //immediate request type (GET, POST)
     protected Path path; //the controller sessions path
     
     public Controller()
     {
-        this(null);
-    }
-    
-    //Create general controller session with GET request
-    public Controller(Path path)
-    {
-        this(new ControllerMessage(), RequestType.GET, path);
-    }
-    
-    //Create a controller session with POST request and respective input data
-    public Controller(ControllerMessage postData, Path path)
-    {
-        this(postData, RequestType.POST, path);
-    }
-    
-    //Creates controller with specific request type and input params
-    //Passing input data is not restricted to POST
-    public Controller(ControllerMessage postData, RequestType requestType, Path path)
-    {
-        this.postData       =   postData;
-        this.requestType    =   requestType;
-        this.path           =   path;
-    }
+        controllerData  =   new ControllerMessage();
+        requestType     =   RequestType.GET;
+        path            =   null;
+    }      
     
     //Returns the controller sessions input data
     //Data may be empty if GET request
     protected ControllerMessage getPostData()
     {
-        return postData;
+        return controllerData;
     }
     
     //Returns the controllers request type
@@ -72,7 +53,7 @@ public abstract class Controller
     //Returns true if the controller session has input data
     public boolean hasPostData()
     {
-        return postData.hasMessages();
+        return controllerData.hasMessages();
     }
 
     //Returns the path that was used to create the controller
@@ -88,17 +69,27 @@ public abstract class Controller
     }
     
     //Checks post data such that it must contain all expected keys
-    public boolean validatePostData(String[] expectedNames)
+    protected boolean validatePostData(String[] expectedNames)
     {
         if(!hasPostData()) return false;
         else
         {
             boolean validate = true;
             for(String name : expectedNames)
-                if(!postData.messageExists(name)) 
+                if(!controllerData.messageExists(name)) 
                     validate = false;
             
             return validate;
         }
+    }
+    
+    public void setControllerData(ControllerMessage controllerData)
+    {
+        this.controllerData =   controllerData;
+    }
+    
+    public void setPath(Path path)
+    {
+        this.path   =   path;
     }
 }

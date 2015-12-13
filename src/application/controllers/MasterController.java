@@ -10,26 +10,10 @@ import application.views.gui.layout.ErrorView;
 import application.views.gui.layout.TransitionView;
 import jdamvc.engine.controller.Controller;
 import jdamvc.engine.controller.ControllerMessage;
-import jdamvc.engine.core.Path;
 import jdamvc.engine.view.View;
 
 public class MasterController extends Controller 
-{
-    public MasterController(Path path)
-    {
-        super(path);
-    }
-    
-    public MasterController(ControllerMessage postData, Path path)
-    {
-        super(postData, path);
-    }
-    
-    public MasterController(ControllerMessage postData, Controller.RequestType requestType, Path path)
-    {
-        super(postData, requestType, path);
-    }
-    
+{       
     public View getTransitionView()
     {
         return new TransitionView();
