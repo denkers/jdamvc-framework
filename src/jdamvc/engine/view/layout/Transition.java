@@ -4,7 +4,7 @@
 //	Transition
 //====================================
 
-package application.views.gui.layout;
+package jdamvc.engine.view.layout;
 
 import java.awt.BorderLayout;
 import java.awt.Color;

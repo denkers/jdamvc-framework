@@ -9,7 +9,7 @@ package jdamvc.engine.view;
 import jdamvc.engine.controller.ControllerMessage;
 import jdamvc.engine.core.Agent;
 import jdamvc.engine.core.ExceptionOutput;
-import application.views.gui.layout.Layout;
+import jdamvc.engine.view.layout.Layout;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.image.BufferedImage;

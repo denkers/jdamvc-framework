@@ -11,10 +11,11 @@ import jdamvc.engine.core.authentication.Session;
 import jdamvc.engine.core.authentication.StoredCredentials;
 import jdamvc.engine.view.GUIView;
 import jdamvc.engine.view.View;
-import application.views.gui.layout.Window;
+import jdamvc.engine.view.layout.Window;
 import java.awt.event.ActionEvent;
 import java.util.Scanner;
 import javax.swing.Timer;
+import jdamvc.engine.view.layout.Layout;
 
 
 //------------------------------------------
@@ -153,11 +154,6 @@ public final class Agent extends CommandInterpreter
     public static void setActiveSession(Session activeSession)
     {
         Agent.activeSession   =   activeSession;
-        if(activeSession != null && guiMode)
-        {
-            window.getAppLayout().getHeadNav().updateUserPanel();
-            window.getAppLayout().getMenu().setEnableUserControls(true);
-        }
     }
     
     //Returns the agents active session
@@ -198,33 +194,7 @@ public final class Agent extends CommandInterpreter
 
             if(guiMode)
             {
-                Layout layout               =   window.getAppLayout();
-                HeaderNavigation headNav    =   layout.getHeadNav();
-                headNav.setViewAddress(view.getPath().getFullURL());
-
-                if(activeView.getPrevView() != null) 
-                {
-                    headNav.enablePrevButton();
-                    layout.getMenu().setEnablePrev(true);
-                }
-
-                else
-                {
-                    headNav.disablePrevButton();
-                    layout.getMenu().setEnablePrev(false);
-                }
-
-                if(activeView.getNextView() != null)
-                {
-                    headNav.enableNextButton();
-                    layout.getMenu().setEnableNext(true);
-                }
-
-                else 
-                {
-                    headNav.disableNextButton();
-                    layout.getMenu().setEnableNext(false);
-                }
+                Layout layout               =   window.getAppLayout();                
 
                 layout.getViewPane().showTransition();
                 Timer transitionTimer    =   new Timer(1500, (ActionEvent e) -> 

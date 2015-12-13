@@ -4,7 +4,7 @@
 //	Window
 //====================================
 
-package application.views.gui.layout;
+package jdamvc.engine.view.layout;
 
 import jdamvc.engine.view.GUIView;
 import java.awt.Point;
@@ -23,7 +23,7 @@ public class Window extends JFrame
         
         layout      =   new Layout();
         getContentPane().add(layout);
-        layout.getMenu().attachTo(this);
+        //layout.getMenu().attachTo(this);
         
         Point dim   =   getWindowDim();
         setSize(dim.x, dim.y);
