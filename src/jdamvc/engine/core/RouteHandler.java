@@ -14,6 +14,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.text.MessageFormat;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import jdamvc.engine.controller.Controller;
 
 
 //------------------------------------------
@@ -105,21 +106,13 @@ public class RouteHandler
         
         Class<?> controller      =   Class.forName(controllerName);
         Method method            =   controller.getDeclaredMethod(controllerMethod, paramTypes);      
-        Object instance;
+        Controller instance;
         
         path.setLocation(fillUrlWithParams(path.getLocation(), params));
-        
-        if(data == null)
-        {
-            Constructor<?> construct    =   controller.getConstructor(Path.class);
-            instance                    =   construct.newInstance(path);
-        }
-            
-        else
-        {
-            Constructor<?> contruct  =   controller.getConstructor(ControllerMessage.class, Path.class);
-            instance                 =   contruct.newInstance(data, path);
-        }
+        Constructor<?> construct    =   controller.getConstructor();
+        instance                    =   (Controller) construct.newInstance(path);
+        instance.setPath(path);
+        if(data != null) instance.setControllerData(data);               
         
         View calledView          =   (View) method.invoke(instance, (Object[]) params);
         return calledView;
@@ -177,11 +170,5 @@ public class RouteHandler
         }
         
         return url;
-    }
-    
-    public static void main(String[] args)
-    {
-        String url  =   "test/{asdasd}/asdasd={weqqwe}";
-        System.out.println(fillUrlWithParams(url, new String[]{"1", "2"}));
     }
 }
