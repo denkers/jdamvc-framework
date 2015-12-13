@@ -16,22 +16,10 @@ public class Config
     //      APP CONFIG
     //--------------------------------------------------------------------------
     //Enabling debug mode will show all debug output messages
-    public static boolean DEBUG_MODE;
-    
-    //Enabling GUI mode will show the applications GUI, disable for CUI
-    public static boolean GUI_MODE;
+    public static boolean DEBUG_MODE;   
     
     //The applications name shown on winodws, titles etc.
     public static String APP_NAME;
-    
-    //The width of the GUI window
-    public static int WINDOW_WIDTH;
-    
-    //The height of the GUI window
-    public static int WINDOW_HEIGHT;
-    
-    //The relative path to the apps images directory
-    public static String RESOURCE_DIR;
     
     //Enabling will allow users to save credentials
     public static boolean ALLOW_CRED_SAVE;
@@ -46,6 +34,31 @@ public class Config
     //Colours have only been tested on linux
     public static boolean CUI_COLOURS;
     //--------------------------------------------------------------------------
+    
+    
+    
+    //--------------------------------------------------------------------------
+    //      LAYOUT CONFIG
+    //--------------------------------------------------------------------------
+    //Enabling GUI mode will show the applications GUI, disable for CUI
+    public static boolean GUI_MODE;
+    
+    //The width of the GUI window
+    public static int WINDOW_WIDTH;
+    
+    //The height of the GUI window
+    public static int WINDOW_HEIGHT;
+    
+    //The relative path to the apps images directory
+    public static String RESOURCE_DIR;
+    
+    //The route name for the error view 
+    public static String ERROR_VIEW_ROUTE;
+    
+    //The route name for the transition view
+    public static String TRANS_VIEW_ROUTE;
+    //--------------------------------------------------------------------------
+    
     
     
     
@@ -147,15 +160,24 @@ public class Config
         Document doc        =   XMLParser.getDocument(path);
         
         DEBUG_MODE          =   XMLParser.nodeBoolValue(doc.getElementsByTagName("debugMode").item(0).getTextContent());
-        GUI_MODE            =   XMLParser.nodeBoolValue(doc.getElementsByTagName("guiMode").item(0).getTextContent());
         APP_NAME            =   doc.getElementsByTagName("appName").item(0).getTextContent();
-        WINDOW_WIDTH        =   XMLParser.nodeIntValue(doc.getElementsByTagName("windowWidth").item(0).getTextContent());
-        WINDOW_HEIGHT       =   XMLParser.nodeIntValue(doc.getElementsByTagName("windowHeight").item(0).getTextContent());
-        RESOURCE_DIR        =   doc.getElementsByTagName("resourceDirectory").item(0).getTextContent();
         ALLOW_CRED_SAVE     =   XMLParser.nodeBoolValue(doc.getElementsByTagName("saveCredentials").item(0).getTextContent());
         CRED_SAVE_FILE      =   doc.getElementsByTagName("credentialsFile").item(0).getTextContent();
         NOTIFICATION_TIME   =   XMLParser.nodeIntValue(doc.getElementsByTagName("notificationTime").item(0).getTextContent());
         CUI_COLOURS         =   XMLParser.nodeBoolValue(doc.getElementsByTagName("cuiColors").item(0).getTextContent());
+    }
+    
+    private static void initLayoutConfig()
+    {
+        String path         =   "application/config/LayoutConfig.xml";
+        Document doc        =   XMLParser.getDocument(path);
+        
+        GUI_MODE            =   XMLParser.nodeBoolValue(doc.getElementsByTagName("guiMode").item(0).getTextContent());
+        WINDOW_WIDTH        =   XMLParser.nodeIntValue(doc.getElementsByTagName("windowWidth").item(0).getTextContent());
+        WINDOW_HEIGHT       =   XMLParser.nodeIntValue(doc.getElementsByTagName("windowHeight").item(0).getTextContent());
+        RESOURCE_DIR        =   doc.getElementsByTagName("resourceDirectory").item(0).getTextContent();
+        ERROR_VIEW_ROUTE    =   doc.getElementsByTagName("errorRoute").item(0).getTextContent();
+        TRANS_VIEW_ROUTE    =   doc.getElementsByTagName("transitionRoute").item(0).getTextContent();
     }
     
     private static void initAuthConfig()
@@ -207,6 +229,7 @@ public class Config
     public static void initConfig()
     {
         initAppConfig();
+        initLayoutConfig();
         initAuthConfig();
         initDatabaseConfig();
         initLoggingConfig();

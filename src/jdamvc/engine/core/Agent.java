@@ -89,8 +89,7 @@ public final class Agent extends CommandInterpreter
         
         setView(startRoute);
         viewContext();
-        agentThread.start();
-        
+        agentThread.start();        
     }
     
     //Call when view controlling input is finished
