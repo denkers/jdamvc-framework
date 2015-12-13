@@ -1,1 +1,0 @@
-jdamvc.application.controllers.MasterController

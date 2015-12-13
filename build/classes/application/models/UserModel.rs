@@ -1,1 +1,0 @@
-jdamvc.application.models.UserModel
