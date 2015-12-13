@@ -4,9 +4,8 @@
 //	BaseController
 //====================================
 
-package jdamvc.application.controllers;
+package application.controllers;
 
-import jdamvc.application.views.gui.layout.ErrorView;
 import jdamvc.engine.controller.Controller;
 import jdamvc.engine.controller.ControllerMessage;
 import jdamvc.engine.core.Path;

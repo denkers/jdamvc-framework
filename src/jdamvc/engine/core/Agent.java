@@ -172,7 +172,7 @@ public final class Agent extends CommandInterpreter
                 ExceptionOutput.output("View not found", ExceptionOutput.OutputType.MESSAGE);
             else
             {
-                View errorView = RouteHandler.go("getErrorPage", new Object[] { "View not found" }, new Class<?>[] { String.class }, null);
+                View errorView = RouteHandler.go(Config.ERROR_VIEW_ROUTE, new Object[] { "View not found" }, new Class<?>[] { String.class }, null);
                 setView(errorView);
             }
         }
@@ -193,7 +193,7 @@ public final class Agent extends CommandInterpreter
 
             if(guiMode)
             {
-                Layout layout               =   window.getAppLayout();                
+                Layout layout    =   window.getAppLayout();                
 
                 layout.getViewPane().showTransition();
                 Timer transitionTimer    =   new Timer(1500, (ActionEvent e) -> 

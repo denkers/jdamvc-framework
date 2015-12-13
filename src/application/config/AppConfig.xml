@@ -2,13 +2,11 @@
 
 <AppConfig>
     <debugMode>true</debugMode>
-    <guiMode>true</guiMode>
     <appName>MyApp</appName>
-    <windowWidth>700</windowWidth>
-    <windowHeight>800</windowHeight>
-    <resourceDirectory>res</resourceDirectory>
     <saveCredentials>true</saveCredentials>
     <credentialsFile>credentials.txt</credentialsFile>
     <notificationTime>30000</notificationTime>
     <cuiColors>false</cuiColors>
+    <errorRoute>getError</errorRoute>
+    <transitionRoute>getTransition</transitionRoute>
 </AppConfig>

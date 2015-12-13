@@ -10,12 +10,14 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.JPanel;
+import jdamvc.engine.core.Config;
+import jdamvc.engine.core.RouteHandler;
 
 
 public class ViewPane extends JPanel
 {
     private GUIView activeView;
-    private final Transition transitionView;
+    private final GUIView transitionView;
     
     private final String TRANSITION_VIEW    =   "transition";
     private final String ACTIVE_VIEW        =   "active";
@@ -29,9 +31,14 @@ public class ViewPane extends JPanel
             Window.getWindowDim().y
         ));
         
-        transitionView  =   new Transition();
-        transitionView.setPreferredSize(getPreferredSize());
-        add(transitionView, TRANSITION_VIEW);
+        transitionView  =   (GUIView) RouteHandler.go(Config.TRANS_VIEW_ROUTE, null);
+        
+        if(transitionView != null)
+        {
+            
+            transitionView.getPanel().setPreferredSize(getPreferredSize());
+            add(transitionView.getPanel(), TRANSITION_VIEW);
+        }
         
         setBackground(Color.WHITE);
     }
