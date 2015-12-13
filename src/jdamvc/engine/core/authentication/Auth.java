@@ -9,12 +9,12 @@ package jdamvc.engine.core.authentication;
 import jdamvc.engine.core.Agent;
 import jdamvc.engine.core.ExceptionOutput;
 import jdamvc.engine.core.loggers.MainLogger;
-import jdamvc.application.models.UserModel;
 import java.text.DateFormat;
 import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import jdamvc.engine.core.Config;
+import jdamvc.engine.model.UserModel;
 
 //---------------------------------------
 //              AUTH

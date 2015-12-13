@@ -6,7 +6,7 @@
 
 package jdamvc.engine.core.authentication;
 
-import jdamvc.application.models.UserModel;
+import jdamvc.engine.model.UserModel;
 
 //---------------------------------------
 //             SESSION
