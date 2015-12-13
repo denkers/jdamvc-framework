@@ -6,7 +6,6 @@
 
 package jdamvc.engine.view;
 
-import jdamvc.engine.controller.ControllerMessage;
 import jdamvc.engine.core.Agent;
 import jdamvc.engine.core.ExceptionOutput;
 import jdamvc.engine.view.layout.Layout;
@@ -19,6 +18,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+import jdamvc.engine.controller.ControllerMessage;
 
 
 public abstract class GUIView extends AbstractView
@@ -35,28 +35,13 @@ public abstract class GUIView extends AbstractView
     
     public GUIView()
     {
-        super();
-        initView();
+        this(new ControllerMessage());
     }
     
-    //Creates a view with name, description and address
-    public GUIView(String viewTitle, String viewDescription)
+    public GUIView(ControllerMessage viewData)
     {
-        super(new ControllerMessage(), viewTitle, viewDescription);
-        initView();
-    }
-    
-    //Create a general view with messages passed
-    public GUIView(ControllerMessage messages)
-    {
-        super(messages, "Layout", "Layout view");
-        initView();
-    } 
-    
-    public GUIView(ControllerMessage messages, String viewTitle, String viewDescription)
-    {
-        super(messages, viewTitle, viewDescription);
-        initView();
+        super(viewData);
+        initGUIView();
     }
     
     @Override
@@ -97,7 +82,7 @@ public abstract class GUIView extends AbstractView
         }
     }
     
-    protected void initView()
+    protected void initGUIView()
     {
         initAppResources();
         initResources();

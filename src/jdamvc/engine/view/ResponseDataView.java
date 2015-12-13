@@ -90,7 +90,7 @@ public class ResponseDataView implements DataView
     }
 
     @Override
-    public ControllerMessage getMessages() 
+    public ControllerMessage getViewData() 
     {
         return responseData;
     }

@@ -40,10 +40,10 @@ public class ErrorView extends GUIView
         innerPanel.setBorder(BorderFactory.createEmptyBorder(180, 0, 0, 0));
         
         JLabel errorLabel   =   new JLabel();
-        if(!messages.hasMessages() || messages.getMessage("errorMessage") == null)
+        if(!viewData.hasMessages() || viewData.getMessage("errorMessage") == null)
             errorLabel.setText("Error");
         else
-            errorLabel.setText(messages.getMessage("errorMessage").toString());
+            errorLabel.setText(viewData.getMessage("errorMessage").toString());
             
         JLabel redirectMsg  =   new JLabel("You will be redirected back shortly");
         errorLabel.setHorizontalAlignment(JLabel.CENTER);

@@ -27,7 +27,7 @@ public interface View extends CommandExecute, ViewExplorer
     
     //Returns the messages passed to the view
     //These can be from the controller 
-    public ControllerMessage getMessages();
+    public ControllerMessage getViewData();
     
     public void setPath(Path path);
     

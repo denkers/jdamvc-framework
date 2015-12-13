@@ -20,9 +20,7 @@ import jdamvc.engine.core.Path;
 
 public abstract class AbstractView extends CommandInterpreter implements View
 {
-    protected ControllerMessage messages; //The messages passed to the view
-    protected String viewTitle; //The views name (can be general)
-    protected String viewDescription; //Brief description of the view
+    protected ControllerMessage viewData; //The messages passed to the view
     protected View nextView; //The next view  if set
     protected View prevView; //The previous view if set
     protected Path path; //The path that was used to fetch the view
@@ -34,24 +32,11 @@ public abstract class AbstractView extends CommandInterpreter implements View
         this(new ControllerMessage());
     }
     
-    //Creates a view with name, description and address
-    public AbstractView(String viewTitle, String viewDescription)
+    public AbstractView(ControllerMessage viewData)
     {
-        this(new ControllerMessage(), viewTitle, viewDescription);
+        this.viewData   =   viewData;
     }
     
-    //Create a general view with messages passed
-    public AbstractView(ControllerMessage messages)
-    {
-        this(messages, "Layout", "Layout view");
-    } 
-    
-    public AbstractView(ControllerMessage messages, String viewTitle, String viewDescription)
-    {
-        this.messages           =   messages;
-        this.viewTitle           =   viewTitle;
-        this.viewDescription    =   viewDescription;
-    }
     
     //Views still need to output their listener file path
     //This path is necessary to load commands for the view
@@ -59,40 +44,17 @@ public abstract class AbstractView extends CommandInterpreter implements View
     protected abstract String getListenerPath();
     
     //Send a message to the view
-    public void pass(String messageName, String message)
+    public void passData(String messageName, String message)
     {
-        messages.add(messageName, message);
+        viewData.add(messageName, message);
     }
     
-    //Returns the views name
-    public String getViewTitle()
-    {
-        return viewTitle;
-    }
-    
-    //Returns the views description
-    public String getViewDescription()
-    {
-        return viewDescription;
-    }
-    
-    //Set the name of the view
-    public void setViewTitle(String viewTitle)
-    {
-        this.viewTitle   =   viewTitle;
-    }
-    
-    //Set the description of the view
-    public void setViewDescription(String viewDescription)
-    {
-        this.viewDescription    =   viewDescription;
-    }
     
     //Returns the messages currently in the view
     @Override
-    public ControllerMessage getMessages()
+    public ControllerMessage getViewData()
     {
-        return messages;
+        return viewData;
     }
     
     //Displays a header with view name and description
