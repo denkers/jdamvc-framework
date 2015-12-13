@@ -11,8 +11,6 @@ import jdamvc.engine.core.authentication.Session;
 import jdamvc.engine.core.authentication.StoredCredentials;
 import jdamvc.engine.view.GUIView;
 import jdamvc.engine.view.View;
-import application.views.gui.layout.HeaderNavigation;
-import application.views.gui.layout.Layout;
 import application.views.gui.layout.Window;
 import java.awt.event.ActionEvent;
 import java.util.Scanner;
@@ -327,8 +325,7 @@ public final class Agent extends CommandInterpreter
     //Logs the current user out if they are logged in
     //User is redirected after 5 seconds 
     public static void sessionLogout()
-    {
-      
+    {      
         if(!guiMode)
         {
             
@@ -347,15 +344,6 @@ public final class Agent extends CommandInterpreter
             {
                 ExceptionOutput.output("[Interrupted in logout] " + ex.getMessage(), ExceptionOutput.OutputType.DEBUG);
             }
-        }
-        
-        else
-        {
-            Layout layout   =   window.getAppLayout();
-            layout.getHeadNav().disableUserControls();
-            layout.getHeadNav().disableNextButton();
-            layout.getMenu().setEnableUserControls(false);
-            layout.getMenu().setEnableNext(false);
         }
         
         setView("logout");
