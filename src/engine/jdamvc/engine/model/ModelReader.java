@@ -9,6 +9,7 @@ package jdamvc.engine.model;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import jdamvc.engine.core.database.Column;
 import jdamvc.engine.core.database.mapping.Attribute;
@@ -28,7 +29,7 @@ public class ModelReader
     
     public static Map<String, Column> getColumns(Model model)
     {
-        Map<String, Column> attrs   =   new HashMap<>();
+        Map<String, Column> attrs   =   new LinkedHashMap<>();
         Field[] fields = model.getClass().getDeclaredFields();
         for(Field field : fields)
         {

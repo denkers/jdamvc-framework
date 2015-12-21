@@ -24,15 +24,19 @@ public final class Column
     private boolean isLiteral; //Column is literal if the column type requires literal encapsulation e.g varchar
     private Class<?> columnType;
     
+    //Creates a column with name and value
+    //isLiteral is set if passed value is a string
+    public Column(String columnName, Object columnValue)
+    {
+        this(columnName, columnValue, columnValue.getClass());
+    }
+    
     //Creates a column definition
     //Column type can be fetched from meta data in ResultSet
     //value is set null and can be added later
     public Column(String columnName, Class<?> columnType)
     {
-        this.columnName =   columnName;
-        this.columnType =   columnType;
-        isLiteral       =   isDBLiteral(columnType);
-        columnValue     =   null;
+        this(columnName, null, columnType);
     }
     
     //Create a column with value of type dbColumnType
@@ -42,9 +46,9 @@ public final class Column
         this.columnName     =   columnName;
         this.columnType     =   columnType;
         this.columnValue    =   columnValue;
-        this.isLiteral      =   isDBLiteral(columnType);
+        isLiteral           =   isDBLiteral(columnType);
     }
-
+    
     //Returns true if the column type is a known literal
     //These typically include dates and strings
     public boolean isDBLiteral(Class<?> type)
@@ -100,6 +104,17 @@ public final class Column
         this.columnValue    =   columnValue;
         if(columnValue instanceof String)
             isLiteral = true;
+    }
+    
+    public Class<?> getColumnType()
+    {
+        return columnType;
+    }
+    
+    public void setColumnType(Class<?> columnType)
+    {
+        this.columnType =   columnType;
+        isLiteral       =   isDBLiteral(columnType);
     }
     
     //Returns true if the columns have the same name 

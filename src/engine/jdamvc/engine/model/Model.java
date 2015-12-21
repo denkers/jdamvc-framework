@@ -53,43 +53,7 @@ public abstract class Model
     public Model()
     {
         data    =   new LinkedHashMap<>();
-        columns =   new LinkedHashMap<>();
-        initColumns();
-    }
-    
-      
-    //Initializes the model's mapping to column names
-    //Fetches and fills the model's columns collection
-    //with all column names of the respective mapping table
-    protected void initColumns()
-    {    
-        try
-        {
-            JsonArray metaDataTemp   =   builder().first().execute();
-            if(metaDataTemp == null) return;
-            
-            JsonObject metaData     =   metaDataTemp.get(0).getAsJsonObject();
-            JsonArray colNames      =   metaData.get("columnNames").getAsJsonArray();
-            JsonArray colTypes      =   metaData.get("columnTypes").getAsJsonArray();
-            
-            initColumns(colNames, colTypes);
-        } 
-        
-        catch(SQLException e)
-        {
-            ExceptionOutput.output("[SQL EXCEPTION] Failed to init columns - " + e.getMessage(), ExceptionOutput.OutputType.DEBUG);
-        } 
-    }
-    
-    protected void initColumns(JsonArray resultColumns, JsonArray colTypes)
-    {
-        columns.clear();
-        for(int colIndex = 0; colIndex < resultColumns.size(); colIndex++)
-        {
-            String colName  =   resultColumns.get(colIndex).getAsString();
-            String colType  =   colTypes.get(colIndex).getAsString();
-            columns.put(colName, new Column(colName, colType));      
-        }
+        columns =   ModelReader.getColumns(this);
     }
     
     public Map<String, Column> getColumns()
