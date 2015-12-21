@@ -56,16 +56,9 @@ public abstract class Model
     {
         data    =   new LinkedHashMap<>();
         columns =   new LinkedHashMap<>();
-        initTable();
         initColumns();
     }
     
-    
-    //Initializes the tables mapping properties
-    //Implementation should initialize table name
-    //and optionally override table properties here
-    protected abstract void initTable();
-            
       
     //Initializes the model's mapping to column names
     //Fetches and fills the model's columns collection

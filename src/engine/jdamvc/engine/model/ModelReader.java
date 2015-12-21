@@ -1,3 +1,9 @@
+//====================================
+//	Kyle Russell
+//	jdamvc
+//	ModelReader
+//====================================
+
 package jdamvc.engine.model;
 
 import java.lang.annotation.Annotation;
@@ -9,11 +15,22 @@ import jdamvc.engine.core.database.mapping.Entity;
 
 public class ModelReader
 {
-    private static Map<String, Model> models;
+    private static final Map<String, Model> models;
+    
+    static
+    {
+        models  =   new HashMap<>();
+        initModels();
+    }
     
     private static Annotation[] getAnnotationsForModal(Model model)
     {
         return model.getClass().getAnnotations();
+    }
+    
+    private static void initModels()
+    {
+        
     }
     
     public static Entity getEntityName(Model model)
