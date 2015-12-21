@@ -1,3 +1,9 @@
+//====================================
+//	Kyle Russell
+//	jdamvc
+//	Entity
+//====================================
+
 package jdamvc.engine.core.database.mapping;
 
 import java.lang.annotation.ElementType;

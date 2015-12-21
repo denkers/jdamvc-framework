@@ -48,8 +48,6 @@ public abstract class Model
     //Allows for mutation such as insertion, deletion and editing
     protected final Map<String, Column> data;
     
-    protected DataConnector activeConnection;
-    
     //Create a new model that does not identify a row
     //Data will be empty and records must be added to model before mutation
     public Model()
@@ -102,11 +100,6 @@ public abstract class Model
     public Map<String, Column> getData()
     {
         return data;
-    }
-    
-    public void setActiveConnection(DataConnector liveConnection)
-    {
-        this.activeConnection   =   liveConnection;
     }
     
     //Sets a models column value
@@ -253,19 +246,10 @@ public abstract class Model
         String columnValues     =   getDataValues();
         String insertQuery      =   MessageFormat.format("INSERT INTO {0} ({1}) VALUES ({2})", table, columnNames, columnValues);
         
-        if(activeConnection == null)
+        try(DataConnector conn  =   new DataConnector())
         {
-            try(DataConnector conn  =   new DataConnector())
-            {
-                conn.setQueryMutator();
-                return conn.execute(insertQuery);
-            }
-        }
-
-        else
-        {
-            activeConnection.setQueryMutator();
-            return activeConnection.execute(insertQuery);
+            conn.setQueryMutator();
+            return conn.execute(insertQuery);
         }
     }
     
