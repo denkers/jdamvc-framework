@@ -6,6 +6,7 @@
 
 package jdamvc.engine.core.database;
 
+import java.sql.Date;
 import jdamvc.engine.model.Model;
 
 //---------------------------------------
@@ -16,62 +17,39 @@ import jdamvc.engine.model.Model;
 //- Provides an extra layer of info for models 
 
 
-public class Column
+public final class Column
 {
     private String columnName; //Column name in table
     private Object columnValue; //The columns value (leave null for just column definitions)
     private boolean isLiteral; //Column is literal if the column type requires literal encapsulation e.g varchar
-    
-    //Creates a column with name and value
-    //isLiteral is set if passed value is a string
-    public Column(String columnName, Object columnValue)
-    {
-        this.columnName     =   columnName;
-        this.columnValue    =   columnValue;
-        this.isLiteral      =   (columnValue instanceof String);
-    }
+    private Class<?> columnType;
     
     //Creates a column definition
     //Column type can be fetched from meta data in ResultSet
     //value is set null and can be added later
-    public Column(String columnName, String dbColumnType)
+    public Column(String columnName, Class<?> columnType)
     {
         this.columnName =   columnName;
-        isLiteral       =   isKnownLiteral(dbColumnType);
+        this.columnType =   columnType;
+        isLiteral       =   isDBLiteral(columnType);
         columnValue     =   null;
     }
     
     //Create a column with value of type dbColumnType
     //value is cast to dbColumnType
-    public Column(String columnName, Object columnValue, String dbColumnType)
+    public Column(String columnName, Object columnValue, Class<?> columnType)
     {
         this.columnName     =   columnName;
-        initValue(dbColumnType, columnValue);   
+        this.columnType     =   columnType;
+        this.columnValue    =   columnValue;
+        this.isLiteral      =   isDBLiteral(columnType);
     }
 
-    //Sets isLiteral based on value
-    //Casts value to the dbColumnType
-    private void initValue(String dbColumnType, Object value)
-    {
-        try 
-        {
-            columnValue =   Class.forName(dbColumnType).cast(value);    
-            isLiteral   =   (columnValue instanceof String);
-        } 
-        
-        catch (ClassNotFoundException ex)
-        {
-            columnValue =   null;
-            isLiteral   =   false;
-        }
-    }
-    
     //Returns true if the column type is a known literal
     //These typically include dates and strings
-    public boolean isKnownLiteral(String dbColumnType)
+    public boolean isDBLiteral(Class<?> type)
     {
-        return dbColumnType.equalsIgnoreCase("java.lang.String") ||
-               dbColumnType.equalsIgnoreCase("java.sql.Date");
+        return type.equals(String.class) || type.equals(Date.class);
     }
     
     //Returns the columns name in the table
