@@ -8,7 +8,6 @@ package jdamvc.engine.model;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import jdamvc.engine.core.database.Column;
@@ -18,14 +17,21 @@ import jdamvc.engine.core.database.mapping.Entity;
 public class ModelReader
 {
     
-    public static Entity getEntityName(Model model)
+    public static String getEntityName(Model model)
     {
-        Annotation entity = model.getClass().getAnnotation(Entity.class);
-        if(entity != null) 
-            return (Entity) entity;
-        else 
-            return null;
+        Annotation attr =   model.getClass().getAnnotation(Entity.class);
+        if(attr != null) 
+        {
+            Entity entity   =   (Entity) attr;
+            if(entity.name().equals(""))
+                return model.getClass().getName();
+            else
+                return entity.name();
+        }
+        
+        else return model.getClass().getName();
     }
+    
     
     public static Map<String, Column> getColumns(Model model)
     {

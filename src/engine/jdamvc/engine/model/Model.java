@@ -19,7 +19,6 @@ import java.text.MessageFormat;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import jdamvc.engine.core.Config;
 
 
 //------------------------------------------
@@ -38,7 +37,7 @@ public abstract class Model
     
     //The table's primary key column name
     //For default see DatabaseConfig - typically "ID" column
-    protected String primaryKey = Config.DEFAULT_KEY;
+    protected String primaryKey;
     
     //The columns in the table
     //Columns are fetched on initialization by initColumns()
@@ -66,6 +65,10 @@ public abstract class Model
         return data;
     }
     
+    protected void initTableMap()
+    {
+    }
+    
     //Sets a models column value
     //Entries in Models table correspond to table columns
     public void set(String colName, Object value)
@@ -73,7 +76,7 @@ public abstract class Model
         data.put(colName.toUpperCase(), new Column(colName.toUpperCase(), value));
     }
     
-    public void set(String colName, Object value, String columnType)
+    public void set(String colName, Object value, Class<?> columnType)
     {
         data.put(colName.toUpperCase(), new Column(colName.toUpperCase(), value, columnType));
     }
