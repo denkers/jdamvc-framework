@@ -25,9 +25,8 @@ import jdamvc.engine.view.layout.Layout;
 //- Is the bridge of communication between sessions, views and data
 
 public final class Agent extends CommandInterpreter
-{
-    
-    //A conext is the flag for who handlesz communication
+{    
+    //A conext is the flag for which listener handles communication
     //Contexts include agent and view (active)
     public enum Context
     {
