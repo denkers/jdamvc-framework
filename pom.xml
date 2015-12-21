@@ -38,7 +38,7 @@
   </properties>
 
   <build>
-	  <sourceDirectory>src/jdamvc</sourceDirectory>
+	  <sourceDirectory>src/engine</sourceDirectory>
 	  <resources>
 		<resource>
 			<directory>${basedir}/src/application</directory>
