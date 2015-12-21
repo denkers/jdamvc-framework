@@ -1,13 +1,10 @@
 
 package jdamvc.engine.core;
 
-import java.io.File;
 import java.io.IOException;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
+import java.io.InputStream;
+import java.util.Properties;
 import org.w3c.dom.Document;
-import org.xml.sax.SAXException;
 
 
 public class Config 
@@ -15,6 +12,8 @@ public class Config
     //--------------------------------------------------------------------------
     //      APP CONFIG
     //--------------------------------------------------------------------------
+    public static String PACK_NAME;
+    
     //Enabling debug mode will show all debug output messages
     public static boolean DEBUG_MODE;   
     
@@ -171,6 +170,21 @@ public class Config
         CRED_SAVE_FILE      =   doc.getElementsByTagName("credentialsFile").item(0).getTextContent();
         NOTIFICATION_TIME   =   XMLParser.nodeIntValue(doc.getElementsByTagName("notificationTime").item(0).getTextContent());
         CUI_COLOURS         =   XMLParser.nodeBoolValue(doc.getElementsByTagName("cuiColors").item(0).getTextContent());
+        
+        try
+        {
+            String innerPath    =   "jdamvc.properties";
+            InputStream is      =   Config.class.getResourceAsStream(innerPath);
+            Properties prop     =   new Properties();
+            prop.load(is);
+            
+            PACK_NAME           =   prop.getProperty("app.package");
+        }
+        
+        catch(IOException e)
+        {
+            PACK_NAME   =   "";
+        }
     }
     
     private static void initLayoutConfig()
