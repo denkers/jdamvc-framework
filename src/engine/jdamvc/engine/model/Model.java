@@ -52,7 +52,7 @@ public abstract class Model
     public Model()
     {
         data    =   new LinkedHashMap<>();
-        columns =   ModelReader.getColumns(this);
+        initTableMap();
     }
     
     public Map<String, Column> getColumns()
@@ -67,6 +67,9 @@ public abstract class Model
     
     protected void initTableMap()
     {
+        table       =   ModelReader.getEntityName(this);
+        columns     =   ModelReader.getColumns(this);
+        primaryKey  =   ModelReader.getPrimaryKey(this);
     }
     
     //Sets a models column value

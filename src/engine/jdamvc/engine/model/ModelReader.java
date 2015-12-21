@@ -32,6 +32,27 @@ public class ModelReader
         else return model.getClass().getName();
     }
     
+    public static String getPrimaryKey(Model model)
+    {
+        Field[] fields  =   model.getClass().getDeclaredFields();
+        for(Field field : fields)
+        {
+            Annotation annotation   =   field.getDeclaredAnnotation(Attribute.class);
+            if(annotation != null)
+            {
+                Attribute attr      =   (Attribute) annotation;
+                if(attr.isPrimaryKey())
+                {
+                    if(attr.name().equals(""))
+                        return field.getName();
+                    else
+                        return attr.name();
+                }
+            }
+        }
+        
+        return null;
+    }
     
     public static Map<String, Column> getColumns(Model model)
     {
