@@ -10,59 +10,45 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
+import jdamvc.engine.core.database.Column;
 import jdamvc.engine.core.database.mapping.Attribute;
 import jdamvc.engine.core.database.mapping.Entity;
 
 public class ModelReader
 {
-    private static final Map<String, Model> models;
-    
-    static
-    {
-        models  =   new HashMap<>();
-        initModels();
-    }
-    
-    private static Annotation[] getAnnotationsForModal(Model model)
-    {
-        return model.getClass().getAnnotations();
-    }
-    
-    private static void initModels()
-    {
-        
-    }
     
     public static Entity getEntityName(Model model)
     {
         Annotation entity = model.getClass().getAnnotation(Entity.class);
-        if(entity != null) return (Entity) entity;
-        else return null;
+        if(entity != null) 
+            return (Entity) entity;
+        else 
+            return null;
     }
     
-    public static Map<String, Attribute> getColumns(Model model)
+    public static Map<String, Column> getColumns(Model model)
     {
-        Map<String, Attribute> attrs = new HashMap<>();
+        Map<String, Column> attrs   =   new HashMap<>();
         Field[] fields = model.getClass().getDeclaredFields();
         for(Field field : fields)
         {
             Annotation annotation = field.getDeclaredAnnotation(Attribute.class);
             if(annotation != null)
             {
-                Attribute attr = (Attribute) annotation;
+                Class<?> type   =   field.getType();
+                String name;
+                
+                Attribute attr  =   (Attribute) annotation;
                 if(attr.name().equals(""))
-                    attrs.put(field.getName(), attr);
+                    name    =   field.getName();
                 else
-                    attrs.put(attr.name(), attr);
+                    name    =   attr.name();
+                
+                Column col  =   new Column(name, type);
+                attrs.put(name, col);
             }
         }
         
         return attrs;
-    }
-    
-    
-    public static Model getModel(String tableName)
-    {
-        return models.get(tableName);
     }
 }
