@@ -103,6 +103,27 @@ public abstract class Model
         }
     }
     
+    public static Model getTable(String tableName)
+    {
+        Class<?> foundClass     =   tables.get(tableName);
+        
+        if(foundClass != null)
+        {
+            try 
+            {
+                Model model         =   (Model) foundClass.newInstance();
+                return model;
+            } 
+            
+            catch (InstantiationException | IllegalAccessException ex)
+            {
+                return null;
+            }
+        }
+        
+        return null;
+    }
+    
     protected void initTableMap()
     {
         table       =   ModelReader.getEntityName(this.getClass());
@@ -131,6 +152,7 @@ public abstract class Model
     {
         return columns.get(colName.toUpperCase());
     }
+    
     
     //Returns the current columns in models data
     //Don't confuse with model's column names (meta)
