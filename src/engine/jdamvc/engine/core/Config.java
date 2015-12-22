@@ -156,21 +156,12 @@ public class Config
     
     static
     {
-        initAppConfig();
+        initBuildProperties();
+        initConfig();
     }
     
-    private static void initAppConfig()
+    private static void initBuildProperties()
     {
-        String path         =   "application/config/AppConfig.xml";
-        Document doc        =   XMLParser.getDocument(path);
-        
-        DEBUG_MODE          =   XMLParser.nodeBoolValue(doc.getElementsByTagName("debugMode").item(0).getTextContent());
-        APP_NAME            =   doc.getElementsByTagName("appName").item(0).getTextContent();
-        ALLOW_CRED_SAVE     =   XMLParser.nodeBoolValue(doc.getElementsByTagName("saveCredentials").item(0).getTextContent());
-        CRED_SAVE_FILE      =   doc.getElementsByTagName("credentialsFile").item(0).getTextContent();
-        NOTIFICATION_TIME   =   XMLParser.nodeIntValue(doc.getElementsByTagName("notificationTime").item(0).getTextContent());
-        CUI_COLOURS         =   XMLParser.nodeBoolValue(doc.getElementsByTagName("cuiColors").item(0).getTextContent());
-        
         try
         {
             String innerPath    =   "jdamvc.properties";
@@ -187,9 +178,22 @@ public class Config
         }
     }
     
+    private static void initAppConfig()
+    {
+        String path         =   PACK_NAME + "/config/AppConfig.xml";
+        Document doc        =   XMLParser.getDocument(path);
+        
+        DEBUG_MODE          =   XMLParser.nodeBoolValue(doc.getElementsByTagName("debugMode").item(0).getTextContent());
+        APP_NAME            =   doc.getElementsByTagName("appName").item(0).getTextContent();
+        ALLOW_CRED_SAVE     =   XMLParser.nodeBoolValue(doc.getElementsByTagName("saveCredentials").item(0).getTextContent());
+        CRED_SAVE_FILE      =   doc.getElementsByTagName("credentialsFile").item(0).getTextContent();
+        NOTIFICATION_TIME   =   XMLParser.nodeIntValue(doc.getElementsByTagName("notificationTime").item(0).getTextContent());
+        CUI_COLOURS         =   XMLParser.nodeBoolValue(doc.getElementsByTagName("cuiColors").item(0).getTextContent());
+    }
+    
     private static void initLayoutConfig()
     {
-        String path         =   "application/config/LayoutConfig.xml";
+        String path         =   PACK_NAME + "config/LayoutConfig.xml";
         Document doc        =   XMLParser.getDocument(path);
         
         GUI_MODE            =   XMLParser.nodeBoolValue(doc.getElementsByTagName("guiMode").item(0).getTextContent());
@@ -204,7 +208,7 @@ public class Config
     
     private static void initAuthConfig()
     {
-        String path         =   "application/config/AuthConfig.xml";
+        String path         =   PACK_NAME + "/config/AuthConfig.xml";
         Document doc        =   XMLParser.getDocument(path);
         
         AUTH_TABLE          =   doc.getElementsByTagName("authTable").item(0).getTextContent();
@@ -218,7 +222,7 @@ public class Config
     
     private static void initDatabaseConfig()
     {
-        String path         =   "application/config/DatabaseConfig.xml";
+        String path         =   PACK_NAME + "/config/DatabaseConfig.xml";
         Document doc        =   XMLParser.getDocument(path);
         
         SERVER              =   doc.getElementsByTagName("server").item(0).getTextContent();
@@ -235,7 +239,7 @@ public class Config
     
     private static void initLoggingConfig()
     {
-        String path         =   "application/config/LoggingConifg.xml";
+        String path         =   PACK_NAME + "/config/LoggingConifg.xml";
         Document doc        =   XMLParser.getDocument(path);
         
         ENABLE_AUTH_LOG     =   XMLParser.nodeBoolValue(doc.getElementsByTagName("enableAuthLog").item(0).getTextContent());

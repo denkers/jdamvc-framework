@@ -16,6 +16,7 @@ import jdamvc.engine.core.database.QueryBuilder;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.text.MessageFormat;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -24,7 +25,6 @@ import java.util.Map;
 //------------------------------------------
 //                  MODEL
 //------------------------------------------
-//- Model object class 
 //- Maps database tables to objects
 //- Model entity represent tables in the database
 //- Model objects represent rows/records
@@ -47,6 +47,13 @@ public abstract class Model
     //Allows for mutation such as insertion, deletion and editing
     protected final Map<String, Column> data;
     
+    private static final Map<String, Model> tables;
+    
+    static
+    {
+        tables  =   new HashMap<>();
+    }
+    
     //Create a new model that does not identify a row
     //Data will be empty and records must be added to model before mutation
     public Model()
@@ -63,6 +70,11 @@ public abstract class Model
     public Map<String, Column> getData()
     {
         return data;
+    }
+    
+    private void registerTables()
+    {
+        
     }
     
     protected void initTableMap()
