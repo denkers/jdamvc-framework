@@ -17,7 +17,7 @@ import jdamvc.engine.core.database.mapping.Entity;
 public class ModelReader
 {
     
-    public static String getEntityName(Model model)
+    public static String getEntityName(Class<?> model)
     {
         Annotation attr =   model.getClass().getAnnotation(Entity.class);
         if(attr != null) 
@@ -32,7 +32,7 @@ public class ModelReader
         else return model.getClass().getName();
     }
     
-    public static String getPrimaryKey(Model model)
+    public static String getPrimaryKey(Class<?> model)
     {
         Field[] fields  =   model.getClass().getDeclaredFields();
         for(Field field : fields)
@@ -54,7 +54,7 @@ public class ModelReader
         return null;
     }
     
-    public static Map<String, Column> getColumns(Model model)
+    public static Map<String, Column> getColumns(Class<?> model)
     {
         Map<String, Column> attrs   =   new LinkedHashMap<>();
         Field[] fields = model.getClass().getDeclaredFields();

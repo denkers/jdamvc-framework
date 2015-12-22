@@ -6,8 +6,12 @@
 
 package jdamvc.engine.model;
 
+import com.google.common.collect.ImmutableSet;
+import com.google.common.reflect.ClassPath;
+import com.google.common.reflect.ClassPath.ClassInfo;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import java.io.IOException;
 import jdamvc.engine.core.JsonParser;
 import jdamvc.engine.core.database.Column;
 import jdamvc.engine.core.DataConnector;
@@ -20,6 +24,9 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import jdamvc.engine.core.Config;
 
 
 //------------------------------------------
@@ -47,11 +54,12 @@ public abstract class Model
     //Allows for mutation such as insertion, deletion and editing
     protected final Map<String, Column> data;
     
-    private static final Map<String, Model> tables;
+    private static final Map<String, Class<?>> tables;
     
     static
     {
         tables  =   new HashMap<>();
+        registerTables();
     }
     
     //Create a new model that does not identify a row
@@ -72,16 +80,34 @@ public abstract class Model
         return data;
     }
     
-    private void registerTables()
+    private static void registerTables()
     {
+        try 
+        {
+            ClassLoader loader  =   Thread.currentThread().getContextClassLoader();
+            ImmutableSet<ClassInfo> classes =   ClassPath.from(loader).getTopLevelClasses(Config.PACK_NAME);
+            for(ClassInfo current : classes)
+            {
+                Class<?> currentClass = current.load();
+                if(Model.class.isAssignableFrom(currentClass))
+                {
+                    String tableName    =   ModelReader.getEntityName(currentClass);
+                    tables.put(tableName, currentClass);
+                }
+            }
+        } 
         
+        catch (IOException ex) 
+        {
+            Logger.getLogger(Model.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     protected void initTableMap()
     {
-        table       =   ModelReader.getEntityName(this);
-        columns     =   ModelReader.getColumns(this);
-        primaryKey  =   ModelReader.getPrimaryKey(this);
+        table       =   ModelReader.getEntityName(this.getClass());
+        columns     =   ModelReader.getColumns(this.getClass());
+        primaryKey  =   ModelReader.getPrimaryKey(this.getClass());
     }
     
     //Sets a models column value
