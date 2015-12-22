@@ -78,7 +78,7 @@ public final class Agent extends CommandInterpreter
     //Context is handed over to starting view
     private void begin()
     {
-        final String startRoute   =   "getLogin";
+        final String startRoute   =   "/";
         
         if(guiMode)
         {
@@ -86,8 +86,8 @@ public final class Agent extends CommandInterpreter
             window.display();
         }
         
+        setViewContext();
         setView(startRoute);
-        viewContext();
         agentThread.start();        
     }
     
@@ -137,13 +137,13 @@ public final class Agent extends CommandInterpreter
     }
     
     //Set the current context to AGENT
-    public void agentContext()
+    public void setAgentContext()
     {
         activeContext   =   Context.AGENT;
     }
     
     //Set the current context to VIEW
-    public void viewContext()
+    public void setViewContext()
     {
         activeContext   =   Context.VIEW;
     }
