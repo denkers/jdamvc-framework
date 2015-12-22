@@ -61,46 +61,6 @@ public abstract class CommandInterpreter implements CommandExecute
         ExceptionOutput.output(message, ExceptionOutput.OutputType.MESSAGE);
     }
     
-    //TODO: print commands or remove showCommands()
-    //Displays a table of available commands from the listener
-    //Each cell includes the command name and description
-    //Used by help command for each view to show commands of the view
-    public void showCommands()
-    {
-        if(commands  == null) return;
-        
-        List<Command> commandCol            =   new ArrayList<>(commands.values());
-        final int maxCols                   =   3;
-        final int maxRows                   =   (int) Math.ceil((commandCol.size() * 1.0) / maxCols);
-        int numRows                         =   Math.max(maxRows, 1);
-        int numCols                         =   Math.min(maxCols, commandCol.size());
-        
-        String[] headers                    =   {};
-        String[][] data                     =   new String[numRows][numCols];
-        int commandIndex                    =   0;
-        
-        for(int row = 0; row < numRows; row++)
-        {
-            for(int col = 0; col < numCols; col++)
-            {
-                if((col * (row + 1)) >= numCols || commandIndex >= commandCol.size())
-                {
-                    data[row][col] = "";
-                    continue;
-                }
-               
-                Command current         =   commandCol.get(commandIndex);
-                String commandName      =   current.getCommandName();
-                String commandDesc      =   current.getCommandDescription();
-               // String commandDisp      =   CUITextTools.keyTextBrackets(commandDesc, commandName);
-                
-                //data[row][col] = commandDisp;
-                commandIndex++;
-            }
-        }
-       
-        //ASCIITable.getInstance().printTable(headers, data);
-    }
     
     //Implementors should return the path to the listeners json file
     //Listeners can be found in engine\config\listeners

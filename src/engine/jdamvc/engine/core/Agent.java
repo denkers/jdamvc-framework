@@ -261,21 +261,6 @@ public final class Agent extends CommandInterpreter
         return window;
     }
     
-    //Shows the command list of the view and agent
-    //Help includes the command names and descriptions
-    public void showHelp()
-    {
-        System.out.println("\nAgent commands\n");
-        showCommands();
-        
-        //Show view commands
-        if(activeView != null)
-        {
-            System.out.println("\nView command\n");
-            ((CommandInterpreter) activeView).showCommands();
-        }
-    }
-    
     //Terminates the Agent session
     //If no other work, app is killed
     public void exitApp()
