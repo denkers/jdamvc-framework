@@ -9,8 +9,24 @@ routing and view display. See [StudentCore](https://github.com/kyleruss/student-
 ## Features
 - Controllers
 - Controller GET/request & POST/submit methods
-- Inter-controller & Controller->View data passing 
-- 
+- Inter-controller & controller->View data passing 
+- Routing
+- Route Grouping
+- Models
+- QueryBuilder statement chaining to create complex queries
+- DQL Statements: 
+  * SELECT + Column Alias
+  * WHERE + Conjunction/Disjunction
+  * JOIN (inner, left, right) as well as join conditionals
+  * ORDER BY & GROUP BY
+  * OFFSET
+  * COUNT
+  * FIRST
+- DML Statements
+  * INSERT
+  * UPDATE
+  * DELETE
+- Transactions
 
 ## Usage
 #### Controllers
@@ -90,6 +106,113 @@ public class User extends Model
     table       = "users"; //Table name
     primaryKey  = "user_id"; //Column name of the primary key
   }
+}
+```
+
+#### Querying (DQL)
+jdamvc allows uers to create complex queries with the `jdamvc.engine.core.database.QueryBuilder` class  
+You can get a `QueryBuilder` instance from a model using the `builder()` method and then begin constructing your query  
+Each query must call the `get()` method at the end of their statement chain where each query will return a `JsonArray`  
+The following example demonstrates how to create a query with a **WHERE** clause and **column alias**
+
+```
+JsonArray classDetails  =   new ClassesModel().builder().where("id", "=", "" + classId)
+                            .select("id", "Class ID")
+                            .select("name", "Class name")
+                            .select("teacher_id", "Teacher ID")
+                            .select("created_date", "Date created")
+                            .get();
+```
+
+
+**JOINS**
+jdamvc supports left, right and inner JOIN statements
+The following example demonstrates an inner-join with the `QueryBuilder`  
+You can add extra `WHERE` clauses on the join condition using the `filter` method 
+```
+JsonArray results   =   user.builder().join(new Join("users", "class_enrolments", "username", "user_id", Join.JoinType.INNERR_JOIN)
+                        .filter(new Conditional("username", "=", username)))
+                        .join("class_enrolments", "classes", "class_id", "id", Join.JoinType.INNERR_JOIN)
+                        .select("classes.id", "Class ID")
+                        .select("classes.name", "Class name")
+                        .select("classes.description", "Class description")
+                        .select("class_enrolments.semester_num", "Semester")   
+                        .get();
+```
+
+
+**Other DQL Statements**
+The following statements are also supported by jdamvc
+  * WHERE  Conjunction/Disjunction
+  * ORDER BY & GROUP BY
+  * OFFSET
+  * COUNT
+  * FIRST
+
+#### Manipulating Data (DML)
+jdamvc supports all common DML statements such as `INSERT`, `UPDATE`, `DELETE`  
+Many of the DML operations can be done directly on model instances for convenience
+
+**INSERT**
+First create an instance of the model and set the column values for the new row  
+When you are ready to save the row into the table call the `save`
+
+```
+User user = new User()
+user.set("username", postData.getMessage("registerUsername"));
+user.set("password", passHash);
+user.set("firstname", postData.getMessage("registerFirstname"));
+user.set("lastname", postData.getMessage("registerLastname"));
+
+boolean saved = user.save();
+```
+
+**UPDATE**
+First get a model instance, set the updated parameters  
+then call the `update` method on the model
+
+```
+User user =   new User(userid);
+user.set('name', 'Joe");
+boolean updated = user.update();
+```
+
+**DELETE**
+You can delete an existing record by first getting the model instance then calling `delete()`
+
+```
+User user = new User(userid);
+boolean deleted = user.delete();
+```
+
+#### Transactions
+jdamvc supports transactions which ensure that all statements in a block  
+are executed successfully otherwise they are rolled back  
+The following example demonstrates transactions where if the User record is not successfully or 
+partially inserted then the statement is not committed
+
+```
+try(DataConnector conn  = new DataConnector())
+{
+  conn.setQueryMutator(); //DML mode
+  user.setActiveConnection(conn); //Let user model instance use the conn connection
+  user.save(); //insert the row
+  
+  ResultSet results = conn.getResults();
+  
+  //Record failed to be saved 
+  if(!results.next()) throw new SQLException();
+  else
+  {
+    //Record was successfully saved!
+    conn.commitTransaction();
+  }
+}
+
+catch(SQLException e)
+{
+  conn.rollbackTransaction();
+  conn.closeConnection();
 }
 ```
 
