@@ -27,6 +27,10 @@ routing and view display. See [StudentCore](https://github.com/kyleruss/student-
   * UPDATE
   * DELETE
 - Transactions
+- Sessions
+- Authentication
+- Views
+- Comprehensive logging
 
 ## Usage
 #### Controllers
@@ -213,6 +217,53 @@ catch(SQLException e)
 {
   conn.rollbackTransaction();
   conn.closeConnection();
+}
+```
+
+#### Views
+Views are the graphical display and interaction for the end-user  
+Views are typically served up by controllers in jdamvc in response to a request  
+You can create a view by extending `jdamvc.engine.view.GUIView`  
+The class also comes with a number of overridable methods that can be used to assist with component initialization
+
+```
+public class HomeView extends GUIView implements ActionListener
+{
+  public HomeView(ControllerMessage data)
+  {
+    super(data);
+  }
+  
+  //Initialize at the minimum the panel 
+  @Override
+  protected void initComponents()
+  {
+    panel = new JPanel();
+    ...
+  }
+  
+  //Initialize the images and extra files needed for this view
+  @Override 
+  protected void initResources()
+  {
+    try
+    {  
+      backgroundImage = ImageIO.read(new File("background.jpg"));
+    }
+    
+    catch(IOException e) 
+    {
+      ...
+    }
+  }
+  
+  //Initialize all the listeners for the components in the view
+  @Override
+  protected void initListeners()
+  {
+    homeButton.addActionListener(this);
+    ...
+  }
 }
 ```
 
