@@ -4,11 +4,10 @@
 //	Transition
 //====================================
 
-package application.views.gui.layout;
+package views.gui.layout;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import jdamvc.engine.view.layout.*;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;

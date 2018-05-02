@@ -4,7 +4,7 @@
 //	Menu
 //====================================
 
-package application.views.gui.layout;
+package views.gui.layout;
 
 import jdamvc.engine.core.Agent;
 import java.awt.Frame;
@@ -161,8 +161,5 @@ public class Menu implements ActionListener
         
         else if(src == profile)
             Agent.setView("getHome");
-        
-        else if(src == notifications)
-            Agent.getWindow().getAppLayout().getHeadNav().showNotificationWindow();
     }
 }

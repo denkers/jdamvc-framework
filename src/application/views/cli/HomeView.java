@@ -1,4 +1,4 @@
-package application.views.cli;
+package views.cli;
 
 import jdamvc.engine.view.AbstractView;
 

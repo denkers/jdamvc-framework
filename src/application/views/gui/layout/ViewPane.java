@@ -3,7 +3,7 @@
 //	StudentCore
 //	ViewPane
 //====================================
-package application.views.gui.layout;
+package views.gui.layout;
 
 import jdamvc.engine.view.GUIView;
 import java.awt.CardLayout;
@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 public class ViewPane extends JPanel
 {
     private GUIView activeView;
-    private final Transition transitionView;
+    private final TransitionView transitionView;
     
     private final String TRANSITION_VIEW    =   "transition";
     private final String ACTIVE_VIEW        =   "active";
@@ -29,9 +29,9 @@ public class ViewPane extends JPanel
             (int) (Window.getWindowDim().y * 0.9)
         ));
         
-        transitionView  =   new Transition();
-        transitionView.setPreferredSize(getPreferredSize());
-        add(transitionView, TRANSITION_VIEW);
+        transitionView  =   new TransitionView();
+        transitionView.getPanel().setPreferredSize(getPreferredSize());
+        add(transitionView.getPanel(), TRANSITION_VIEW);
         
         setBackground(Color.WHITE);
     }

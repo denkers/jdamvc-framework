@@ -4,7 +4,7 @@
 //	Window
 //====================================
 
-package application.views.gui.layout;
+package views.gui.layout;
 
 import jdamvc.engine.view.GUIView;
 import java.awt.Point;

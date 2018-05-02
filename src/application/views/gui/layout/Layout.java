@@ -4,7 +4,7 @@
 //	Layout
 //====================================
 
-package application.views.gui.layout;
+package views.gui.layout;
 
 import jdamvc.engine.core.ExceptionOutput;
 import java.awt.BorderLayout;

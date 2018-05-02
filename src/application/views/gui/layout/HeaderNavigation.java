@@ -4,7 +4,7 @@
 //	HeaderNavigation
 //====================================
 
-package application.views.gui.layout;
+package views.gui.layout;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;

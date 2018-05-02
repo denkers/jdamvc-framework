@@ -1,15 +1,10 @@
+//====================================
+//	Kyle Russell
+//	jdamvc
+//====================================
 
-package jdamvc.application.models;
+package models;
 
 import jdamvc.engine.model.Model;
 
-public class UserModel extends Model
-{
-
-    @Override
-    protected void initTable() 
-    {
-        
-    }
-    
-}
+public class UserModel extends Model {}

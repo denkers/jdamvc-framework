@@ -4,10 +4,10 @@
 //	BaseController
 //====================================
 
-package application.controllers;
+package controllers;
 
-import application.views.gui.layout.ErrorView;
-import application.views.gui.layout.TransitionView;
+import views.gui.layout.ErrorView;
+import views.gui.layout.TransitionView;
 import jdamvc.engine.controller.Controller;
 import jdamvc.engine.controller.Message;
 import jdamvc.engine.view.View;
