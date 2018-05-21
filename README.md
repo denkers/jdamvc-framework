@@ -275,7 +275,7 @@ public class HomeView extends GUIView implements ActionListener
 
 
 ### Installation
-- [Download]https://github.com/kyleruss/jdamvc-framework/releases/latest) the latest release  
+- [Download](https://github.com/kyleruss/jdamvc-framework/releases/latest) the latest release  
 OR `git clone` the repository and run `mvn package`
 - Reference the `jdamvc.jar` library in your project 
 - **Optional:** Copy the template `application` into your project sources, rename the packages where necessary
